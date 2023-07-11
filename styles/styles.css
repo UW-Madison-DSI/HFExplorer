@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -15,7 +15,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -31,7 +31,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -230,7 +230,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -340,7 +340,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -351,7 +351,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -367,7 +367,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -378,7 +378,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -394,7 +394,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -461,7 +461,7 @@ input[type=range]::-ms-thumb:hover {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -477,7 +477,7 @@ input[type=range]::-ms-thumb:hover {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -516,7 +516,7 @@ input[type=range]::-ms-thumb:hover {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -571,7 +571,7 @@ input[type=range]::-ms-thumb:hover {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -760,7 +760,7 @@ body[device=phone] .form-group > div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -836,7 +836,7 @@ body[device=phone] .form-group > div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -915,7 +915,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -967,7 +967,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -982,7 +982,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -998,7 +998,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1183,7 +1183,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1291,7 +1291,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1307,7 +1307,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1346,7 +1346,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1401,7 +1401,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1590,7 +1590,7 @@ body[device=phone] .form-group > div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1666,7 +1666,7 @@ body[device=phone] .form-group > div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1745,7 +1745,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1797,7 +1797,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1812,7 +1812,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -1828,7 +1828,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1880,7 +1880,7 @@ input[type=range]::-moz-range-thumb {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -1914,7 +1914,7 @@ i.rotated.reversed {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2141,7 +2141,7 @@ fieldset legend {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2198,7 +2198,7 @@ fieldset legend {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2231,7 +2231,7 @@ fieldset legend {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2317,7 +2317,7 @@ body[device=phone] .page .section > .row > div + div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2430,7 +2430,7 @@ body[device=phone] .page .section > .row > div + div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2486,7 +2486,7 @@ body[device=phone] .page .section > .row > div + div {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2584,7 +2584,7 @@ body[device="phone"] {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2649,7 +2649,7 @@ table tbody tr:not(.first) td.duplicate {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2675,7 +2675,7 @@ table tbody tr:not(.first) td.duplicate {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
@@ -2758,7 +2758,7 @@ body[device=phone] h3 {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines various CSS styles used in this application.             |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -2902,7 +2902,7 @@ body[device=phone] h3 {
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the dom and svg visual styles for this application.      |
+|        This defines the visual styling rules used in this application.       |
 |                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
