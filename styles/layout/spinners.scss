@@ -20,7 +20,7 @@
 //
 
 $spinner-color: $brand-primary;
-$spinner-background-color: fade(#e0e0f0, 50%);
+$spinner-background-color: fade-in(#e0e0f0, 0.5);
 
 //
 // spinners
@@ -56,7 +56,7 @@ $spinner-background-color: fade(#e0e0f0, 50%);
 		right: 0;
 		top: 0;
 		bottom: 0;
-		background-color: fade(white, 50%);
+		background-color: fade-in(white, 0.5);
 	}
 }
 	

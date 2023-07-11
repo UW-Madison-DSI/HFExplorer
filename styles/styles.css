@@ -1021,7 +1021,7 @@ input[type=range]::-moz-range-thumb {
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
-  box-shadow: 10px 10px 50px 10px fade(black, 50%);
+  box-shadow: 10px 10px 50px 10px black;
   pointer-events: auto;
   left: 0;
   top: 0;
@@ -1083,7 +1083,7 @@ input[type=range]::-moz-range-thumb {
 }
 .modal.backdrop {
   pointer-events: all;
-  background-color: fade(black, 25%);
+  background-color: black;
 }
 
 .modal-open .modal {
@@ -2455,7 +2455,7 @@ body[device=phone] .page .section > .row > div + div {
   margin-top: -50px;
   object-fit: cover;
   box-shadow: none;
-  border-color: fade(#e0e0f0, 50%);
+  border-color: #e0e0f0;
   border-top-color: #3A76AF;
 }
 
@@ -2470,7 +2470,7 @@ body[device=phone] .page .section > .row > div + div {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: fade(white, 50%);
+  background-color: white;
 }
 
 .loading .spinner {
@@ -2551,7 +2551,7 @@ body[device=phone] .page .section > .row > div + div {
 
 body:not(.binary) .contents.split-view > .split.mainbar::after {
   content: "";
-  box-shadow: inset 0px 0px 10px fade(black, 20%);
+  box-shadow: inset 0px 0px 10px black;
   position: absolute;
   left: 0;
   right: 0;
@@ -2834,7 +2834,7 @@ body[device=phone] h3 {
   color: unset;
 }
 #page.welcome .masthead .panel {
-  background-color: fade(white, 50%);
+  background-color: white;
 }
 #page.welcome .masthead .links {
   margin-top: 20px;

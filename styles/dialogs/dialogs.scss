@@ -34,7 +34,7 @@
 			border-radius: 5px;
 			border-width: 1px;
 			border-style: solid;
-			box-shadow: 10px 10px 50px 10px fade(black, 50%);
+			box-shadow: 10px 10px 50px 10px fade-in(black, 0.5);
 			pointer-events: auto;
 			left: 0;
 			top: 0;
@@ -131,7 +131,7 @@
 
 .modal.backdrop {
 	pointer-events: all;
-	background-color: fade(black, 25%);
+	background-color: fade-in(black, 0.5);
 }
 
 .modal-open {
