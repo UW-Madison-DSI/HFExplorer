@@ -32,7 +32,7 @@ View the [Help](http://www.hepexplorer.net/#help) page for details of how to use
 
 Distributed under the permissive MIT license. See the [license](./LICENSE.txt) for more information.
 
-<!-- Contact -->
-## Credits
+<!-- Acknowledgements -->
+## Acknowledgements
 
 This software was created by the [American Family Insurance Data Science Institute](https://datascience.wisc.edu/) at the [University of Wisconsin-Madison](https://www.wisc.edu/) under a grant from [IRIS Hep](https://iris-hep.org/)
