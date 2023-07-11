@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a panel view used for viewing channels.                  |
+|        This defines the workspace channels sidebar panel view.               |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

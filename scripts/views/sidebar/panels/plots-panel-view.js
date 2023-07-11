@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a panel view used for viewing plots.                     |
+|        This defines the workspace plots sidebar panel view.                  |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

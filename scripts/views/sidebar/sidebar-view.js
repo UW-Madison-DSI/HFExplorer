@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a view used for viewing sidebars.                        |
+|        This defines the workspace sidebar view and its various panels.       |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

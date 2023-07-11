@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a panel view used for viewing parameters.                |
+|        This defines the workspace parameters sidebar panel view.             |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

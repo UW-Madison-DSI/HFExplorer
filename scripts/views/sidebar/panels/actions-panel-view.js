@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a panel view used for viewing sidebar actions.           |
+|        This defines the workspace actions sidebar panel view.                |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |

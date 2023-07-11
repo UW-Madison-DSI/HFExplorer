@@ -4,7 +4,7 @@
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines a panel view used for viewing patchsets.                 |
+|        This defines the workspace patches sidebar panel view.                |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
