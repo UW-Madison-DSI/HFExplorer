@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="1000 250 1000 1500" style="enable-background:new 0 0 2000 2000;" xml:space="preserve">
+<style type="text/css">
+	.white {
+		fill: white;
+		stroke: white;
+	}
+</style>
+<g>
+	<rect x="1111.73" y="617.05" class="white" width="246.89" height="696.73"/>
+	<rect x="1358.96" y="966.48" class="white" width="242.82" height="347.3"/>
+	<ellipse class="white" transform="matrix(0.1602 -0.9871 0.9871 0.1602 495.2428 1680.7653)" cx="1235.37" cy="549.34" rx="34.96" ry="34.96"/>
+	<polyline class="white" points="1228.77,319.03 1228.77,780.05 1241.98,780.05 1241.98,319.03"/>
+	<polyline class="white" points="1356.62,542.93 1114.52,542.93 1114.52,556.15 1356.62,556.15"/>
+	<ellipse class="white" transform="matrix(0.9871 -0.1602 0.1602 0.9871 -146.744 250.4189)" cx="1479.87" cy="1035.4" rx="34.96" ry="34.96"/>
+	<polyline class="white" points="1473.26,896.44 1473.26,1175.16 1486.47,1175.16 1486.47,896.44"/>
+	<polyline class="white" points="1601.12,1028.99 1359.02,1028.99 1359.02,1042.21 1601.12,1042.21"/>
+	<path class="white" d="M1734.95,812.54c0,0-0.8-17.58,2.4-77.5c7.99-61.26,70.05-101.74,113.72-107.07c43.68-5.33,120.65-2.13,120.65-2.13
+		s0,86.03,0,103.07c-93.34-17.84-104.4,22.37-104.4,35.42c0,13.05,0,48.21,0,48.21h96.95v92.54h-96.95v404.7h-134.41v-404.7h-80.79
+		v-92.54L1734.95,812.54z"/>
+</g>
+</svg>

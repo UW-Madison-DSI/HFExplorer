@@ -1,0 +1,27 @@
+/******************************************************************************\
+|                                                                              |
+|                                workspace.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+
+#workspace {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	.split-view {
+		position: relative;
+		flex-grow: 1;
+		overflow: auto;
+	}
+}

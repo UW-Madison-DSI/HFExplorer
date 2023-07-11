@@ -1,0 +1,35 @@
+/******************************************************************************\
+|                                                                              |
+|                                 toolbar.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+
+#toolbar {
+	text-align: center;
+	padding: 2px;
+	// background-color: #f0f0f0;
+	background-color: $light-grey;
+	border-bottom: 1px solid darken($light-grey, 10%);
+}
+
+//
+// extra small styles
+//
+
+@media (max-width: $screen-xs-max) {
+	#toolbar {
+		.btn {
+			min-width: 20%;
+
+			i {
+				display: none;
+			}
+		}
+	}
+}
