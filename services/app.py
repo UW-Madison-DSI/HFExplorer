@@ -20,12 +20,12 @@ from controllers.contact_controller import ContactController
 import logging
 
 # set logging file
-#
 # logging.basicConfig(filename='log/info.log', level=logging.INFO)
 
 # create new Flask app
-#
 app = Flask(__name__, static_folder='../', static_url_path="/")
+
+# set app configuration
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'public/workspaces')
 app.config['APP_JQ'] = '/opt/homebrew/bin/jq'
 
@@ -96,8 +96,6 @@ def get_dict(name):
 #                            API route definitions                             #
 ################################################################################
 
-# root route
-#
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
@@ -141,8 +139,6 @@ def get_patches(id):
 
 	return WorkspaceController.get_patches(id)
 
-# get workspace parameters
-#
 @app.get('/api/workspaces/<string:id>/params')
 def get_params(id):
 
@@ -223,8 +219,6 @@ def get_fit(id):
 #                              plotting routes                                 #
 ################################################################################
 
-# create a set of histograms
-#
 @app.post('/api/workspaces/<string:id>/histograms')
 def post_histograms(id):
 
@@ -258,11 +252,9 @@ def post_pull_plot(id):
 	return WorkspaceController.post_pull_plot(id, patches, params)
 
 ################################################################################
-#                              plotting routes                                 #
+#                            contact form routes                               #
 ################################################################################
 
-# submit a contact form request
-#
 @app.post('/api/contacts')
 def post_create():
 
