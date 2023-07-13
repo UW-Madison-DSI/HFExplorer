@@ -21,7 +21,7 @@ This application depends upon the following utilities which will need to be inst
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/installation/)
 
-Flask is used for the back end web services.
+Flask is a Python framework that is used for the back end web services.
 
 ```
 pip install Flask
@@ -30,7 +30,7 @@ pip install Flask
 
 - [pyhf](https://scikit-hep.org/pyhf/installation.html):
 
-pyhf is used to read and manage HistFactory data in JSON format.
+pyhf is a Python utility that is used to read and manage HistFactory data in JSON format.
 
 ```
 python -m pip install pyhf
@@ -38,7 +38,7 @@ python -m pip install pyhf
 
 - [cabinetry](https://pypi.org/project/cabinetry/):
 
-Cabinetry is used to perform parameter fits.
+Cabinetry is a Python utility that is used to perform parameter fits.
 
 ```
 python -m pip install cabinetry
@@ -46,7 +46,7 @@ python -m pip install cabinetry
 
 - [jq](https://jqlang.github.io/jq/download/):
 
-Jq is a utility for managing JSON patch files.
+Jq is a command line utility for managing JSON patch files.
 
 ```
 brew install jq
