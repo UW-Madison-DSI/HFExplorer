@@ -6,7 +6,9 @@
 
 # HF Explorer
 
-HF Explorer is a web based viewer for particle physics that allows users to view various types of plots from data formatted as HistFactory workspaces.
+HF Explorer is a web based viewer for high energy particle physics that allows users to view various types of plots from data formatted as HistFactory workspaces.
+
+If you are working with HistFactory formatted data, HF Explorer provides an easy-to-use and convenient way to generate plots, perform fits, and to investigate the impact of various parameters on the model performance.
 
 <div align="center">
     <img src="./images/info/workspace.png" style="width:75%; border:2px solid lightgrey" />
