@@ -25,9 +25,15 @@ import logging
 # create new Flask app
 app = Flask(__name__, static_folder='../', static_url_path="/")
 
-# set app configuration
+################################################################################
+#                             app configuration                                #
+################################################################################
+
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'public/workspaces')
 app.config['APP_JQ'] = '/opt/homebrew/bin/jq'
+app.config['DEBUG'] = False
+app.config['HOST'] = 'localhost'
+app.config['PORT'] = '5000'
 
 ################################################################################
 #                    request parameter parsing methods                         #
@@ -272,4 +278,4 @@ def post_create():
 ################################################################################
 
 if __name__ == '__main__':
-	app.run()
+	app.run(debug=app.config['DEBUG'], host=app.config['HOST'], port=int(app.config['PORT']))

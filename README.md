@@ -15,12 +15,81 @@ HF Explorer is a web based viewer for particle physics that allows users to view
 
 ## Installation
 
-To run the web application, install the project files in the document root of your web server and then edit the file "config/config.json" to point to the back end web server.   You will need to install and configure the back end web server before you can perform this step.
-```
-{
-	"server": "http://localhost/hf-explorer-server/public/api"
-}
+This application uses a Flask / python based back end for web services so you will need to install Flask as well as a number of related utilities:
 
+- [Flask](https://flask.palletsprojects.com/en/2.3.x/installation/)
+```
+pip install Flask
+
+```
+
+- [pyhf](https://scikit-hep.org/pyhf/installation.html):
+```
+python -m pip install pyhf
+```
+
+- [cabinetry](https://pypi.org/project/cabinetry/):
+```
+python -m pip install cabinetry
+```
+
+- [jq](https://jqlang.github.io/jq/download/):
+```
+brew install jq
+```
+
+## Configuration
+
+The application configuration is handled by the top level Flask python file: services/app.py.
+
+```
+################################################################################
+#                             app configuration                                #
+################################################################################
+
+app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'public/workspaces')
+app.config['APP_JQ'] = '/opt/homebrew/bin/jq'
+app.config['DEBUG'] = False
+app.config['HOST'] = 'localhost'
+app.config['PORT'] = '5000'
+
+```
+
+- UPLOAD_FOLDER
+
+This is where the user workspaces are uploaded to.  By default, it is set to the folder (local to this application):
+```
+/public/workspaces 
+```
+
+You can optionally change this to be somewhere else if you'd like.
+
+- APP_JQ
+
+This is the path to the jq utility app.  On MacOS, it is located in
+```
+/opt/homebrew/bin/jq
+```
+If you are running on another operating system, then you will need to set this accordingly.  On most linux systems, this path should be set to 'user/bin'.
+
+- DEBUG
+
+This is the debugging state for Flask and determines how error messages are displayed.  If you are running locally, then you can set this to True for detailed error messages.  When you deploy to production, then you should set this to False.
+
+- HOST
+
+This is the host that the server runs on.  For local development, this is set to "localhost".  When you deploy to another server, then you should set this to that server's hostname or IP address.
+
+- PORT
+
+This is the port that the server runs on.  It is set to 5000 by default but if you are running the application on a public web server then you will want to change this to 80 for HTTP or 443 for HTTPS.  Note: To run on port 80 or 443, you will need to have root access priveleges.
+
+## Running
+
+After you have configured the server, you can run it using the following command:
+
+```
+python3 app.py
 ```
 
 ## Documentation
