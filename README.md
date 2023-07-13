@@ -95,7 +95,7 @@ python3 app.py
 After starting the server, to run the application, open your web browser to:
 
 ```
-http:\\localhost:5000
+http://localhost:5000
 ```
 
 ## Documentation
