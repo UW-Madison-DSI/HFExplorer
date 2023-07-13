@@ -86,10 +86,16 @@ This is the port that the server runs on.  It is set to 5000 by default but if y
 
 ## Running
 
-After you have configured the server, you can run it using the following command:
+After you have configured the server, you can start the server with the following command:
 
 ```
 python3 app.py
+```
+
+After starting the server, to run the application, open your web browser to:
+
+```
+http:\\localhost:5000
 ```
 
 ## Documentation
