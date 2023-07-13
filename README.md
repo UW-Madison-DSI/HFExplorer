@@ -17,7 +17,7 @@ If you are working with HistFactory formatted data, HF Explorer provides an easy
 
 ## Installation
 
-This application depends upon the following utilities which will need to be installed before you can run the application:
+This application depends upon the following utilities which will need to be installed before you can run it:
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/installation/)
 
@@ -100,7 +100,7 @@ This is the port that the server runs on.  It is set to 5000 by default but if y
 
 ## Running
 
-After you have configured the server, you can start the server with the following command:
+After you have configured the server, you can start it with the following command:
 
 ```
 python3 app.py
