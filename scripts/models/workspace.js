@@ -89,7 +89,7 @@ export default BaseModel.extend({
 		let data = {};
 
 		if (options.patches) {
-			data.patches = options.patches;
+			data.patches = options.patches.join('_');
 		}
 
 		$.ajax(_.extend(options, {
@@ -105,7 +105,7 @@ export default BaseModel.extend({
 		let data = {};
 
 		if (options.patches) {
-			data.patches = options.patches;
+			data.patches = options.patches.join('_')
 		}
 
 		$.ajax(_.extend(options, {
@@ -116,15 +116,26 @@ export default BaseModel.extend({
 		}));
 	},
 
+	fetchPlots: function(kind, options) {
+		switch (kind) {
+			case 'histogram':
+				this.fetchHistograms(options);
+				break;
+			case 'pull_plot':
+				this.fetchPullPlots(options);
+				break;
+		}
+	},
+
 	fetchHistograms: function(options) {
 		let url = config.server + '/workspaces/' + this.get('id') + '/histograms';
 		let data = {};
 
+		if (options.patches) {
+			data.patches = options.patches.join('_');
+		}
 		if (options.params) {
 			data.params = options.params;
-		}
-		if (options.patches) {
-			data.patches = options.patches;
 		}
 
 		$.ajax(_.extend(options, {
@@ -139,11 +150,11 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/pull-plot';
 		let data = {};
 
+		if (options.patches) {
+			data.patches = options.patches.join('_');
+		}
 		if (options.params) {
 			data.params = options.params;
-		}
-		if (options.patches) {
-			data.patches = options.patches;
 		}
 
 		$.ajax(_.extend(options, {
@@ -159,7 +170,7 @@ export default BaseModel.extend({
 		let data = {};
 
 		if (options.patches) {
-			data.patches = options.patches;
+			data.patches = options.patches.join('_');
 		}
 
 		$.ajax(_.extend(options, {

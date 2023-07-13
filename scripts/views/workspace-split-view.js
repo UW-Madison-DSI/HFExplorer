@@ -241,7 +241,7 @@ export default SplitView.extend({
 
 			// options
 			//
-			patches: options? options.patches : [],
+			patches: this.getPatches(),
 
 			// callbacks
 			//

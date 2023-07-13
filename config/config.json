@@ -1,3 +1,3 @@
 {
-	"server": "http://localhost/hf-explorer-server/public/api"
+	"server": "/api"
 }

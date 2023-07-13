@@ -34,7 +34,7 @@ export default BaseView.extend({
 				<i class="fa fa-sliders"></i>Parameters
 			</label>
 
-			<div class="radio-buttons">
+			<div class="sorting radio-buttons">
 				<div class="radio-inline">
 					<label>Sort</label>
 				</div>
