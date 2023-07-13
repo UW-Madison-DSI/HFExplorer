@@ -15,25 +15,37 @@ HF Explorer is a web based viewer for particle physics that allows users to view
 
 ## Installation
 
-This application uses a Flask / python based back end for web services so you will need to install Flask as well as a number of related utilities:
+This application depends upon the following utilities which will need to be installed before you can run the application:
 
 - [Flask](https://flask.palletsprojects.com/en/2.3.x/installation/)
+
+Flask is used for the back end web services.
+
 ```
 pip install Flask
 
 ```
 
 - [pyhf](https://scikit-hep.org/pyhf/installation.html):
+
+pyhf is used to read and manage HistFactory data in JSON format.
+
 ```
 python -m pip install pyhf
 ```
 
 - [cabinetry](https://pypi.org/project/cabinetry/):
+
+Cabinetry is used to perform parameter fits.
+
 ```
 python -m pip install cabinetry
 ```
 
 - [jq](https://jqlang.github.io/jq/download/):
+
+Jq is a utility for managing JSON patch files.
+
 ```
 brew install jq
 ```
