@@ -36,16 +36,17 @@ class WorkspaceController:
 		"""
 
 		# create new workspace
-		#
 		id = random.randint(0, 999999)
 		workspace = Workspace(id)
 
-		# upload workspace files
-		#
+		# get request's file parameters
 		background = request.files['background'] if 'background' in request.files else None;
 		patchset = request.files['patchset'] if 'patchset' in request.files else None;
+
+		# upload workspace files
 		workspace.upload(background, patchset)
 
+		# return workspace object / id
 		return {
 			'id': id
 		}
@@ -160,7 +161,7 @@ class WorkspaceController:
 			object: A histogram plot.
 		"""
 
-		# read binary file contents
+		# return binary file contents
 		return send_file(Workspace(id).histogram_path(channel))
 
 	@staticmethod
@@ -175,7 +176,7 @@ class WorkspaceController:
 			object: A pull plot.
 		"""
 
-		# read binary file contents
+		# return binary file contents
 		return send_file(Workspace(id).pull_plot_path())
 
 	@staticmethod
@@ -187,7 +188,7 @@ class WorkspaceController:
 		Parameters:
 			id (string): The workspace id
 		Returns:
-			object: A list of the fit parameters.
+			object: A list of the fit's parameters.
 		"""
 
 		# get workspace fit
