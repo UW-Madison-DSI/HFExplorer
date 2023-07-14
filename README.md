@@ -58,7 +58,7 @@ The application configuration is managed by the file: services/config.py.  To co
 
 1. cd services
 2. Copy config.template.py to config.py.
-3. Fill in the indicated fields in config.py with your desired values.
+3. Fill in the indicated fields in config.py with your desired values (optional).
 
 For more information about configuration, see [services/README.md](services/README.md)
 
