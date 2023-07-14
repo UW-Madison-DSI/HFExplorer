@@ -19,7 +19,7 @@ DEBUG = True
 HOST = 'localhost'
 PORT = '5000'
 
-# mail configuration
+# mail configuration - used only for contact form
 MAIL_SERVER = '<Your mail host here>'
 MAIL_PORT = 587
 MAIL_USERNAME = '<Your mail username here>'
