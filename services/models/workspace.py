@@ -80,7 +80,7 @@ class Workspace:
 			string
 		"""
 
-		return flask.current_app.config['UPLOAD_FOLDER']
+		return os.path.join(flask.current_app.root_path, flask.current_app.config['UPLOAD_FOLDER'])
 
 	def workspace_dir(self):
 

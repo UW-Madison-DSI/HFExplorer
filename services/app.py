@@ -14,26 +14,25 @@
 
 import os
 from flask import Flask, request, jsonify
+from flask_mail import Mail, Message
 from models.workspace import Workspace
 from controllers.workspace_controller import WorkspaceController
 from controllers.contact_controller import ContactController
+import config
 import logging
 
 # set logging file
 # logging.basicConfig(filename='log/info.log', level=logging.INFO)
 
+################################################################################
+#                            app initialization                                #
+################################################################################
+
 # create new Flask app
 app = Flask(__name__, static_folder='../', static_url_path="/")
 
-################################################################################
-#                             app configuration                                #
-################################################################################
-
-app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'public/workspaces')
-app.config['APP_JQ'] = '/opt/homebrew/bin/jq'
-app.config['DEBUG'] = False
-app.config['HOST'] = 'localhost'
-app.config['PORT'] = '5000'
+# configure app fron config.py
+app.config.from_object(config)
 
 ################################################################################
 #                    request parameter parsing methods                         #
