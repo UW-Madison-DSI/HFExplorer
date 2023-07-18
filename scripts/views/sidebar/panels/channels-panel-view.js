@@ -31,18 +31,7 @@ export default BaseView.extend({
 	template: _.template(`
 		<div class="header">
 			<label><i class="fa fa-tv"></i>Channels</label>
-
-			<div class="selection radio-buttons">
-				<div class="radio-inline">
-					<label>Select</label>
-				</div>
-				<div class="radio-inline">
-					<label><input type="radio" name="selection" value="one" checked>One</label>
-				</div>
-				<div class="radio-inline">
-					<label><input type="radio" name="selection" value="all">All</label>
-				</div>
-			</div>
+			<input type="checkbox" />
 		</div>
 
 		<div class="channels list"></div>
@@ -56,7 +45,15 @@ export default BaseView.extend({
 	},
 
 	events: {
-		'click input[name="selection"]': 'onClickSelection'
+		'click .header input[type="checkbox"]': 'onClickCheckbox'
+	},
+
+	//
+	// querying methods
+	//
+
+	isAllChecked: function() {
+		return this.$el.find('.header input[type="checkbox"]').is(':checked');
 	},
 
 	//
@@ -116,16 +113,17 @@ export default BaseView.extend({
 	// mouse event handling methods
 	//
 
-	onClickSelection: function() {
-		switch (this.getSelection()) {
-			case 'one':
-				this.getChildView('channels').setSelectable(true);
-				this.getChildView('channels').setSelected([this.collection.at(0).get('name')]);
-				break;
-			case 'all':
-				this.getChildView('channels').selectAll();
-				this.getChildView('channels').setSelectable(false);
-				break;
+	onClickCheckbox: function() {
+		if (this.isAllChecked()) {
+			this.getChildView('channels').selectAll();
+		} else {
+			this.getChildView('channels').deselectAll();
+		}
+
+		// perform callback
+		//
+		if (this.options.onchange) {
+			this.options.onchange();
 		}
 	}
 });

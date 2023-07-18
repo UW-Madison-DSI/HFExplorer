@@ -48,8 +48,11 @@ $sidebar-panel-padding: 10px;
 				}
 			}
 
-			.radio-buttons {
+			.radio-buttons, input[type="checkbox"] {
 				float: right;
+			}
+			input[type="checkbox"] {
+				margin-right: 15px;
 			}
 		}
 

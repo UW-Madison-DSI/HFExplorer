@@ -2339,8 +2339,11 @@ body[device=phone] .page .section > .row > div + div {
 .sidebar .panel .header > label > i {
   margin-right: 5px;
 }
-.sidebar .panel .header .radio-buttons {
+.sidebar .panel .header .radio-buttons, .sidebar .panel .header input[type=checkbox] {
   float: right;
+}
+.sidebar .panel .header input[type=checkbox] {
+  margin-right: 15px;
 }
 .sidebar .panel > .radio-buttons {
   text-align: center;
@@ -2609,7 +2612,8 @@ table th:not(:last-child) {
   border-right-width: 0;
 }
 table th input[type=radio], table th input[type=checkbox] {
-  margin-right: 5px;
+  margin: 5px;
+  float: right;
 }
 table th label {
   font-weight: normal;
@@ -2637,7 +2641,8 @@ table tbody tr td.highlighted::after {
   border: none;
 }
 table tbody tr td input[type=radio], table tbody tr td input[type=checkbox] {
-  margin: 0 5px;
+  margin: 5px;
+  float: right;
 }
 table tbody tr:not(.first) td.duplicate {
   opacity: 0 !important;

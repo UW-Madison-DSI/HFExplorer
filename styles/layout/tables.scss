@@ -55,7 +55,8 @@ table {
 		//
 
 		input[type="radio"], input[type="checkbox"] {
-			margin-right: 5px;
+			margin: 5px;
+			float: right;
 		}
 
 		label {
@@ -130,7 +131,8 @@ table {
 				//
 
 				input[type="radio"], input[type="checkbox"] {
-					margin: 0 5px;
+					margin: 5px;
+					float: right;
 				}
 			}
 

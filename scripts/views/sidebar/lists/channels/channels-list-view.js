@@ -60,20 +60,21 @@ export default CollectionView.extend({
 		return names;
 	},
 
-	getSelected: function() {
-		let names = [];
-		let rows = this.$el.find('tbody tr.selected');
-		for (let i = 0; i < rows.length; i++) {
-			let index = $(rows[i]).index();
-			names.push(this.collection.at(index).get('name'));
-		}
-		return names;
-	},
-
 	getModel: function(channel) {
 		return this.collection.where({
 			name: channel
 		})[0];
+	},
+
+	getSelected: function() {
+		let names = [];
+		for (let i = 0; i < this.children.length; i++) {
+			let childView = this.children.findByIndex(i);
+			if (childView.isSelected()) {
+				names.push(childView.model.get('name'));
+			}
+		}
+		return names;
 	},
 
 	//
@@ -85,11 +86,9 @@ export default CollectionView.extend({
 			return;
 		}
 
-		this.deselectAll();
-		let rows = this.$el.find('tbody tr');
-		for (let i = 0; i < channels.length; i++) {
-			let index = this.collection.indexOf(this.getModel(channels[i]));
-			$(rows[index]).addClass('selected');
+		for (let i = 0; i < this.children.length; i++) {
+			let childView = this.children.findByIndex(i);
+			childView.setSelected(channels.includes(childView.model.get('name')));
 		}
 
 		// callbacks
@@ -104,21 +103,19 @@ export default CollectionView.extend({
 	},
 
 	//
-	// selection methods
+	// selecting methods
 	//
 
 	selectAll: function() {
-		this.$el.find('tbody tr').addClass('selected');
-
-		// callbacks
-		//
-		if (this.options.onchange) {
-			this.options.onchange();
+		for (let i = 0; i < this.children.length; i++) {
+			this.children.findByIndex(i).select();
 		}
 	},
 
 	deselectAll: function() {
-		this.$el.find('tbody tr.selected').removeClass('selected');
+		for (let i = 0; i < this.children.length; i++) {
+			this.children.findByIndex(i).deselect();
+		}
 	},
 
 	//

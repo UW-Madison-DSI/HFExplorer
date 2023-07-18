@@ -26,11 +26,14 @@ export default BaseView.extend({
 	tagName: 'tr',
 
 	template: _.template(`
-		<td><%= name %></td>
+		<td>
+			<%= name %>
+			<input type="checkbox" />
+		</td>
 	`),
 
 	events: {
-		'click': 'onClick'
+		'click input[type="checkbox"]': 'onClickCheckbox'
 	},
 
 	//
@@ -43,6 +46,46 @@ export default BaseView.extend({
 		name = name.replace('postfit', '(postfit)');
 		name = name.replace('custom parameters', '(custom parameters)');
 		return name;
+	},
+
+	//
+	// querying methods
+	//
+
+	isSelected: function() {
+		return this.$el.find('input').is(':checked');
+	},
+
+	//
+	// setting methods
+	//
+
+	setSelected: function(selected) {
+		if (selected) {
+			this.select();
+		} else {
+			this.deselect();
+		}
+	},
+
+	//
+	// selecting methods
+	//
+
+	select: function() {
+		this.$el.find('input').prop('checked', true);
+	},
+
+	deselect: function() {
+		this.$el.find('input').prop('checked', false);
+	},
+
+	toggle: function() {
+		if (!this.isSelected()) {
+			this.select();
+		} else {
+			this.deselect();
+		}
 	},
 
 	//
@@ -59,7 +102,13 @@ export default BaseView.extend({
 	// mouse event handling methods
 	//
 
-	onClick: function() {
-		this.parent.setSelected([this.model.get('name')]);
+	onClickCheckbox: function() {
+		// this.toggle();
+
+		// perform callback
+		//
+		if (this.options.onchange) {
+			this.options.onchange();
+		}
 	}
 });

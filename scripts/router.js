@@ -16,6 +16,12 @@ import BaseView from './views/base-view.js';
 export default Backbone.Router.extend({
 
 	//
+	// attributes
+	//
+
+	templates: 'templates',
+
+	//
 	// route definitions
 	//
 
@@ -37,15 +43,19 @@ export default Backbone.Router.extend({
 	//
 
 	showWelcome: function() {
-		import(
-			'./views/welcome-view.js'
-		).then((WelcomeView) => {
+		this.fetchTemplate('welcome', (text) => {
+			import(
+				'./views/welcome-view.js'
+			).then((WelcomeView) => {
 
-			// show home view
-			//
-			application.show(new WelcomeView.default(), {
-				full_width: true,
-				nav: 'welcome'
+				// show home view
+				//
+				application.show(new WelcomeView.default({
+					template: template(text)
+				}), {
+					full_width: true,
+					nav: 'welcome'
+				});
 			});
 		});
 	},
@@ -85,12 +95,7 @@ export default Backbone.Router.extend({
 	},
 
 	showInfo: function(address) {
-		fetch('templates/' + address + '.tpl').then(response => {
-			if (!response.ok) {
-				throw response;
-			}
-			return response.text();
-		}).then(text => {
+		this.fetchTemplate(address, (text) => {
 
 			// show info page
 			//
@@ -98,15 +103,6 @@ export default Backbone.Router.extend({
 				template: template(text)
 			}), {
 				nav: address.contains('/')? address.split('/')[0] : address
-			});
-		}).catch(error => {
-
-			// show 404 page
-			//
-			this.showNotFound({
-				title: "Page Not Found",
-				message: "The page that you are looking for could not be found: " + address,
-				error: error
 			});
 		});
 	},
@@ -122,7 +118,32 @@ export default Backbone.Router.extend({
 
 			// show not found page
 			//
-			application.showPage(new NotFoundView.default(options));
+			application.show(new NotFoundView.default(options));
+		});
+	},
+
+	//
+	// utility methods
+	//
+
+	fetchTemplate(address, callback) {
+		fetch(this.templates + '/' + address + '.tpl').then(response => {
+			if (!response.ok) {
+				throw response;
+			}
+			return response.text();
+		}).then(template => {
+			callback(template);
+			return;
+		}).catch(error => {
+
+			// show 404 page
+			//
+			this.showNotFound({
+				title: "Page Not Found",
+				message: "The page that you are looking for could not be found: " + address,
+				error: error
+			});
 		});
 	}
 });
