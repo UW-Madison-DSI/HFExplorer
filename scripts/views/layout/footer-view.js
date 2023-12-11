@@ -23,8 +23,8 @@ export default BaseView.extend({
 		<div class="container">
 			<a href="<%= defaults.application.organization.url%>" target="_blank"><img class="logo" src="<%= defaults.footer.image %>" /></a>
 			<p>
-				<%= defaults.application.name %>, Copyright &copy; <%= defaults.application.year %> <br />
-				<a href="<%= defaults.application.author.url %>" target="_blank"><%= defaults.application.author.name %></a>,
+				<%= defaults.application.name %>, Copyright &copy; <%= defaults.application.year %> </br>
+				<a href="<%= defaults.application.author.url %>" target="_blank"><%= defaults.application.author.name %></a> </br>
 				<a href="<%= defaults.application.organization.url %>" target="_blank"><%= defaults.application.organization.name %></a>
 			</p>
 		</div>

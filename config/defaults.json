@@ -4,13 +4,13 @@
 		"year": "2023",
 
 		"author": {
-			"name": "American Family Insurance Data Science Institute",
+			"name": "Data Science Institute, University of Wisconsin-Madison",
 			"url": "http://datascience.wisc.edu"
 		},
 
 		"organization": {
-			"name": "University of Wisconsin-Madison",
-			"url": "http://wisc.edu"
+			"name": "This project is supported by the National Science Foundation under awards OAC-2226378, OAC-2226379 and OAC-2226380",
+			"url": "http://www.nsf.gov"
 		}
 	},
 
@@ -22,6 +22,11 @@
 				"text": "About",
 				"icon": "fa fa-info-circle",
 				"href": "#about"
+			},
+			"gallery": {
+				"text": "Gallery",
+				"icon": "fa fa-chart-line",
+				"href": "#gallery"
 			},
 			"help": {
 				"text": "Help",
@@ -61,7 +66,8 @@
 		],
 		"tagline": "Data viewer for HistFactory (hf) high energy physics modeling",
 		"image": "images/help/fit/fit.gif",
-		"caption": "hf Explorer Performing a Fit"
+		"caption": "hf Explorer Performing a Fit",
+		"workspace_url": "https://www.hepdata.net/record/resource/1935437"
 	},
 
 	"footer": {

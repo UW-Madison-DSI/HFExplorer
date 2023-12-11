@@ -57,7 +57,7 @@ export default BaseModel.extend({
 	// ajax methods
 	//
 
-	upload: function(backgroundFile, patchsetFile, options) {
+	uploadFiles: function(backgroundFile, patchsetFile, options) {
 		let formData = new FormData();
 		formData.append('background', backgroundFile.files[0]);
 		formData.append('patchset', patchsetFile.files[0]);
@@ -68,6 +68,16 @@ export default BaseModel.extend({
 			data: formData,
 			contentType: false,
 			processData: false
+		}));
+	},
+
+	uploadUrl: function(url, options) {
+		$.ajax(_.extend({}, options, {
+			type: 'POST',
+			url: config.server + '/workspaces/upload/url',
+			data: {
+				url: url
+			}
 		}));
 	},
 

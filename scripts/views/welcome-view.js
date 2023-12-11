@@ -16,9 +16,10 @@
 \******************************************************************************/
 
 import Workspace from '../models/workspace.js';
-import BaseViewView from '../views/base-view.js';
+import BaseView from '../views/base-view.js';
+import '../../vendor/bootstrap/js/tab.js';
 
-export default BaseViewView.extend({
+export default BaseView.extend({
 
 	//
 	// attributes
@@ -31,21 +32,46 @@ export default BaseViewView.extend({
 	},
 
 	events: {
-		'click .background .select': 'onClickSelectBackground',
-		'click .patchset .select': 'onClickSelectPatchset',
-		'click .patchset .clear': 'onClickClearPatchset',
-		'click .upload button': 'onClickUpload',
-		'change .background input[type="file"]': 'onChangeBackgroundFile',
-		'change .patchset input[type="file"]': 'onChangePatchsetFile'
+
+		// mouse events
+		//
+		'click .background.btn': 'onClickSelectBackground',
+		'click .patchset.btn': 'onClickSelectPatchset',
+		'click .clear.btn': 'onClickClear',
+		'click .upload-files button': 'onClickUploadFiles',
+		'click .upload-url button': 'onClickUploadUrl',
+
+		// file events
+		//
+		'change #background-file': 'onChangeBackgroundFile',
+		'change #patchset-file': 'onChangePatchsetFile'
+	},
+
+	//
+	// getting methods
+	//
+
+	getBackgroundFile: function() {
+		return this.$el.find('#background-file')[0];
+	},
+
+	getPatchsetFile: function() {
+		return this.$el.find('#patchset-file')[0];
+	},
+
+	getUrl: function() {
+		return this.$el.find('.url input[type="text"]').val();
+	},
+
+	getFileType: function() {
+		return this.$el.find('.file-type input:checked').val();
 	},
 
 	//
 	// form methods
 	//
 
-	submit: function() {
-		let backgroundFile = $('.background input[type="file"]')[0];
-		let patchsetFile = $('.patchset input[type="file"]')[0];
+	uploadFiles: function() {
 
 		// create new workspace
 		//
@@ -53,7 +79,33 @@ export default BaseViewView.extend({
 
 		// upload workspace files
 		//
-		this.workspace.upload(backgroundFile, patchsetFile, {
+		this.workspace.uploadFiles(this.getBackgroundFile(), this.getPatchsetFile(), {
+
+			// callbacks
+			//
+			success: (workspace) => {
+
+				// go to plot view
+				//
+				application.navigate('#workspaces/' + workspace.id, {
+					trigger: true
+				});
+			},
+			error: (response) => {
+				alert(response.statusText)
+			}
+		});
+	},
+
+	uploadUrl: function() {
+
+		// create new workspace
+		//
+		this.workspace = new Workspace();
+
+		// upload workspace files
+		//
+		this.workspace.uploadUrl(this.getUrl(), {
 
 			// callbacks
 			//
@@ -98,28 +150,37 @@ export default BaseViewView.extend({
 	//
 
 	onClickSelectBackground: function() {
-		this.$el.find('.background input[type="file"]').trigger('click');
-	},
-
-	onChangeBackgroundFile: function() {
-		this.$el.find('.background input[type="file"]').show();
-		this.$el.find('.upload button').prop('disabled', false);
+		this.$el.find('#background-file').trigger('click');
 	},
 
 	onClickSelectPatchset: function() {
-		this.$el.find('.patchset input[type="file"]').trigger('click');
+		this.$el.find('#patchset-file').trigger('click');
+	},
+
+	onClickClear: function() {
+		this.$el.find('#patchset-file').val('');
+		this.$el.find('#patchset-file').hide();
+	},
+
+	onClickUploadFiles: function() {
+		this.uploadFiles();
+	},
+
+	onClickUploadUrl: function() {
+		this.uploadUrl();
+	},
+
+	//
+	// file event handling methods
+	//
+
+	onChangeBackgroundFile: function() {
+		this.$el.find('#background-file').show();
+		this.$el.find('.upload-files button').prop('disabled', false);
 	},
 
 	onChangePatchsetFile: function() {
-		this.$el.find('.patchset input[type="file"]').show();
-		this.$el.find('.patchset button.clear').prop('disabled', false);
-	},
-
-	onClickClearPatchset: function() {
-		this.$el.find('.patchset input[type="file"]').val('');
-	},
-
-	onClickUpload: function() {
-		this.submit();
+		this.$el.find('#patchset-file').show();
+		this.$el.find('.btn.clear').prop('disabled', false);
 	}
 });

@@ -1,0 +1,65 @@
+/******************************************************************************\
+|                                                                              |
+|                                  _badges.js                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+
+@use "../colors/branding";
+
+//
+// variables
+//
+
+$shadow: 1px 1px 5px fade-in(black, 0.5);
+$rounded-border-radius: 5px;
+$round-border-radius: 10px;
+
+//
+// colors
+//
+
+$color: white;
+$background-color: branding.$primary-color;
+$border-color: white;
+
+//
+// styles
+//
+
+.badge {
+	font-weight: bold;
+	padding: 1px 3px;
+	border-width: 2px;
+	border-style: solid;
+	border-radius: $rounded-border-radius;
+	$color: $color;
+	border-color: $border-color;
+	background-color: $background-color;
+
+	i {
+		height: 10px;
+		min-width: 10px;
+		font-size: 85%;
+		vertical-align: top;
+		margin: 1px;
+		color: $color;
+	}
+
+	&.active {
+		cursor: pointer;
+	}
+
+	&::empty {
+		display: none;
+	}
+}
+
+.badge:empty {
+	display: none;
+}

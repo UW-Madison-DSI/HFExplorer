@@ -34,6 +34,21 @@ app = Flask(__name__, static_folder='../', static_url_path="/")
 # configure app fron config.py
 app.config.from_object(config)
 
+
+################################################################################
+#                           http to https redirect                             #
+################################################################################
+
+if (app.config['PORT'] == 443):
+	@app.before_request
+	def redirect_https():
+		if not request.url.startswith('https://'):
+		# if not request.is_secure:
+			if request.url.startswith('http://'):
+				return redirect(request.url.replace("http://", "https://"))
+			else:
+				return redirect("https://" + request.url)
+
 ################################################################################
 #                    request parameter parsing methods                         #
 ################################################################################
@@ -128,7 +143,19 @@ def post_upload():
 		object: The newly created workspace
 	"""
 
-	return WorkspaceController.post_upload()
+	return WorkspaceController.post_upload_files()
+
+@app.post('/api/workspaces/upload/url')
+def post_upload_url():
+
+	"""
+	Upload a workspace from a url.
+
+	Return
+		object: The newly created workspace
+	"""
+
+	return WorkspaceController.post_upload_url()
 
 @app.get('/api/workspaces/<string:id>/patches')
 def get_patches(id):
@@ -277,4 +304,7 @@ def post_create():
 ################################################################################
 
 if __name__ == '__main__':
-	app.run(debug=app.config['DEBUG'], host=app.config['HOST'], port=int(app.config['PORT']))
+	if (app.config['PORT'] == 443):
+		app.run(debug=app.config['DEBUG'], host=app.config['HOST'], port=443, ssl_context=(app.config['SSL_CERT'], app.config['SSL_KEY']))
+	else:
+		app.run(debug=app.config['DEBUG'], host=app.config['HOST'], port=app.config['PORT'])

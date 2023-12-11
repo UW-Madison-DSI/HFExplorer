@@ -1,0 +1,19 @@
+/******************************************************************************\
+|                                                                              |
+|                                _branding.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+
+//
+// colors
+//
+
+$primary-color: #3A76AF;
+$light-color: lighten($primary-color, 10%);
+$dark-color: darken($primary-color, 10%);

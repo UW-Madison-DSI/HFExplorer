@@ -1,0 +1,68 @@
+/******************************************************************************\
+|                                                                              |
+|                                  _tabs.scss                                  |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+
+@use "../colors/colors";
+
+//
+// styles
+//
+
+/*
+.nav-tabs {
+	border-bottom: 2px solid colors.$brand-primary;
+	margin-bottom: 10px;
+
+	> li {
+		margin-bottom: 0;
+		margin-top: 10px;
+		margin-left: 5px;
+		position: relative;
+
+		> a {
+			text-align: center;
+			padding: 3px 10px;
+
+			i {
+				font-size: 20px;
+			}
+		}
+
+		&.active {
+			> a, > a:hover {
+				color: white;
+				background: colors.$brand-primary;
+				border-color: transparent;
+			}
+
+			.badge {
+				background: colors.$select-color;
+			}
+		}
+
+		&:not(.active) {
+			> a {
+				i {
+					color: lighten(grey, 20%);
+				}
+
+				&:hover {
+					border-color: transparent;
+
+					i {
+						color: grey;
+					}
+				}
+			}
+		}
+	}
+}
+*/

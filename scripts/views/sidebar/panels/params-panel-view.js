@@ -30,9 +30,8 @@ export default BaseView.extend({
 
 	template: _.template(`
 		<div class="header">
-			<label>
-				<i class="fa fa-sliders"></i>Parameters
-			</label>
+			<label><i class="fa fa-sliders"></i>Parameters</label>
+			<div class="badge"><%= num_params %></div>
 
 			<div class="sorting radio-buttons">
 				<div class="radio-inline">
@@ -113,6 +112,12 @@ export default BaseView.extend({
 	//
 	// rendering methods
 	//
+
+	templateContext: function() {
+		return {
+			num_params: this.collection.length
+		};
+	},
 
 	onRender: function() {
 		this.showSliders();

@@ -1,33 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                  styles.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                                   styles.scss                                |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                                keyframes.scss                                |
+|                         _animation-keyframes.scss                            |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -226,7 +199,7 @@
 }
 /******************************************************************************\
 |                                                                              |
-|                                animation.scss                                |
+|                               _animation.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -336,18 +309,7 @@
 
 /******************************************************************************\
 |                                                                              |
-|                                  styles.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                                   styles.scss                                |
+|                                   _index.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -363,7 +325,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                   colors.scss                                |
+|                                  _index.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -374,7 +336,29 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                             colored-sliders.scss                             |
+|                                _branding.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  _colors.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                            _colored-sliders.scss                             |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -390,7 +374,7 @@
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                   theme.scss                                 |
+|                                  _theme.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -399,7 +383,7 @@
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
-.navbar-inverse .navbar-nav > li.active > a, .navbar-inverse .navbar-nav > li.active a:hover, .navbar-inverse .navbar-nav > li.active a:focus {
+.navbar-inverse .navbar-nav > li.active {
   background-color: #2d5c89;
 }
 
@@ -457,7 +441,7 @@ input[type=range]::-ms-thumb:hover {
 
 /******************************************************************************\
 |                                                                              |
-|                                   styles.scss                                |
+|                                  _index.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -473,528 +457,7 @@ input[type=range]::-ms-thumb:hover {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                   badges.js                                  |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.badge {
-  font-weight: bold;
-  padding: 1px 3px;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 5px;
-  border-color: white;
-  background: #3A76AF;
-}
-.badge i {
-  height: 10px;
-  min-width: 10px;
-  font-size: 85%;
-  vertical-align: top;
-  margin: 1px;
-  color: white;
-}
-.badge.active {
-  cursor: pointer;
-}
-.badge::empty {
-  display: none;
-}
-
-.badge:empty {
-  display: none;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                   buttons.scss                               |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.btn, .btn:focus {
-  outline: none !important;
-  background: #ececee;
-  border: none;
-}
-.btn i, .btn:focus i {
-  margin-right: 5px;
-}
-.btn:hover, .btn:active, .btn:focus:hover, .btn:focus:active {
-  background: #d0d0d7;
-  border-color: #d0d0d7;
-}
-
-.btn-primary, .btn-primary:focus {
-  background: #3A76AF;
-  border-color: #3A76AF;
-}
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus:hover, .btn-primary:focus:active {
-  background: #2d5c89;
-  border-color: #2d5c89;
-}
-
-.btn-primary[disabled], .btn-primary:focus[disabled] {
-  background: #3a76af;
-  border-color: #3a76af;
-}
-.btn-primary[disabled]:hover, .btn-primary[disabled]:active, .btn-primary:focus[disabled]:hover, .btn-primary:focus[disabled]:active {
-  background: #2d5c89;
-  border-color: #2d5c89;
-}
-
-.btn.btn-sm {
-  width: 25px;
-  padding: 0;
-}
-.btn.btn-sm i {
-  margin-right: 0;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                   forms.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-input {
-  outline: none;
-}
-
-textarea {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  padding: 5px;
-  border-color: lightgrey;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  outline: none;
-}
-
-select {
-  -webkit-appearance: none;
-  border-radius: 0;
-  padding: 0 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: lightgrey;
-  border-radius: 5px;
-  outline: none;
-}
-
-input[type=file] {
-  display: inline-block;
-  outline: none !important;
-}
-input[type=file]::-webkit-file-upload-button {
-  display: none;
-}
-
-input[type=number], input[type=text] {
-  padding: 0 5px;
-  border: 1px solid lightgrey;
-}
-
-.input-group .form-control {
-  z-index: 0;
-}
-
-.form-control {
-  font-size: 16px;
-}
-
-.input-group-addon i {
-  margin: 0;
-}
-
-.form-group .checkbox input[type=checkbox], label input[type=checkbox] {
-  margin-top: 10px;
-}
-
-.form-label i, .control-label i {
-  margin-right: 5px;
-}
-
-.form-horizontal .form-group {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.form-horizontal .control-label {
-  padding-top: 0;
-}
-
-.required label:after,
-label.required:after,
-span.required:after {
-  content: "*";
-  color: #c2002f;
-  margin-left: 5px;
-}
-
-.alert label {
-  margin-right: 10px;
-}
-
-.country-code.input-group {
-  width: 100px;
-}
-
-#country-selector {
-  position: absolute;
-}
-
-#country-selector .dropdown-menu {
-  position: relative;
-  margin: 0;
-  padding: 0;
-}
-
-#country-selector button img {
-  margin-top: -3px;
-  margin-left: 5px;
-}
-
-.country-code.input-group {
-  width: 100px;
-}
-
-/*
- * validation styles
- */
-label.error {
-  font-weight: bold;
-  color: #c2002f;
-  padding-top: 0;
-  background: url(../images/forms/error.png) 5px 0px no-repeat;
-  padding-left: 30px;
-}
-
-label.error:empty {
-  display: none;
-}
-
-label.error.valid {
-  display: none;
-}
-
-.form-group.error input,
-.form-group.error textarea {
-  border: 1px solid #c2002f;
-}
-
-/*
- * popover styles
- */
-.popover {
-  max-width: 360px;
-  width: auto;
-}
-
-@media (min-width: 480px) {
-  form.form-horizontal .form-group > label {
-    width: 25%;
-    float: left;
-    margin-right: 15px;
-  }
-  form.form-horizontal .form-group > .controls, form.form-horizontal .form-group > .static-controls,
-  form.form-horizontal .form-group > .form-control, form.form-horizontal .form-group > .form-control-static {
-    float: left;
-    width: 50%;
-  }
-}
-@media (max-width: 991px) {
-  #page form.form-horizontal .form-group {
-    width: 80%;
-    margin-left: 10%;
-  }
-  #page form.form-horizontal .form-group > label {
-    text-align: left;
-    width: 100%;
-  }
-  #page form.form-horizontal .form-group > .controls, #page form.form-horizontal .form-group > .static-controls,
-  #page form.form-horizontal .form-group > .form-control, #page form.form-horizontal .form-group > .form-control-static {
-    width: 100%;
-  }
-}
-@media (max-width: 767px) {
-  #page form.form-horizontal .form-group,
-  form.form-horizontal .form-group {
-    width: 100%;
-    margin-left: 0%;
-  }
-}
-body[device=phone] .form-group > div {
-  padding: 0;
-  overflow: hidden;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                popovers.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.popover {
-  max-width: 500px;
-  border-color: #ededed;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-.popover.right > .arrow {
-  border-right-color: transparent;
-}
-.popover .popover-title {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px;
-}
-.popover .popover-title i, .popover .popover-title .icon {
-  margin-right: 5px;
-}
-.popover .popover-title button.close {
-  float: right;
-  width: 20px;
-  height: 20px;
-  margin-left: 10px;
-}
-.popover .popover-title button.close i {
-  font-size: 16px;
-  vertical-align: top;
-  line-height: 20px;
-  margin-right: 0;
-}
-.popover .popover-title button.close:hover {
-  background: darkgrey;
-}
-.popover .popover-content {
-  padding: 10px;
-  max-height: 250px;
-  overflow: auto;
-}
-.popover .popover-content > div {
-  display: flex;
-}
-.popover .popover-content .title {
-  font-size: 16px;
-  font-weight: bold;
-  padding-bottom: 10px;
-  border-bottom: 1px solid lightgrey;
-}
-.popover .popover-content .title label {
-  display: none !important;
-}
-.popover .popover-content label {
-  display: block;
-  margin: 0;
-}
-.popover .popover-content .info {
-  display: block;
-}
-.popover .popover-content .info > div + div {
-  margin-top: 5px;
-}
-.popover .popover-content .profile-photo {
-  margin-right: 10px;
-  max-width: 100px;
-  max-height: 100px;
-  border-radius: 5px;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                  sliders.scss                                |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.input {
-  text-align: center;
-}
-.input .values {
-  display: flex;
-  white-space: nowrap;
-}
-.input .values .min {
-  float: left;
-  text-align: left;
-  width: 33%;
-  color: darkgrey;
-}
-.input .values .max {
-  float: right;
-  text-align: right;
-  width: 33%;
-  color: darkgrey;
-}
-.input .values input[type=number] {
-  text-align: center;
-  width: 33%;
-  -moz-appearance: textfield;
-}
-.input .values input[type=number]::-webkit-outer-spin-button, .input .values input[type=number]::-webkit-inner-spin-button {
-  display: none;
-}
-.input input[type=range] {
-  margin-top: 5px;
-}
-
-input[type=range] {
-  -webkit-appearance: none;
-  background: none;
-  padding-top: 5px;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  height: 7px;
-  border-radius: 3px;
-}
-input[type=range]::-moz-range-track {
-  height: 7px;
-  border-radius: 3px;
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
-  margin-top: -4px;
-  border-radius: 50%;
-  border-width: 1px;
-  border-style: solid;
-}
-input[type=range]::-moz-range-thumb {
-  -webkit-appearance: none;
-  width: 12px;
-  height: 12px;
-  margin-top: -4px;
-  border-radius: 50%;
-  border-width: 1px;
-  border-style: solid;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                   tabs.scss                                  |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.nav-tabs {
-  border-bottom: 2px solid #3A76AF;
-  margin-bottom: 10px;
-}
-.nav-tabs > li {
-  margin-bottom: 0;
-  margin-top: 10px;
-  margin-left: 5px;
-  position: relative;
-}
-.nav-tabs > li > a {
-  width: 50px;
-  text-align: center;
-  padding: 10px 0;
-}
-.nav-tabs > li > a i {
-  font-size: 20px;
-}
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
-  background: white;
-  border-color: transparent;
-}
-.nav-tabs > li.active .badge {
-  background: #558fc7;
-}
-.nav-tabs > li:not(.active) > a i {
-  color: #b3b3b3;
-}
-.nav-tabs > li:not(.active) > a:hover {
-  border-color: transparent;
-}
-.nav-tabs > li:not(.active) > a:hover i {
-  color: grey;
-}
-.nav-tabs > li .badge {
-  position: absolute;
-  top: 1px;
-  right: 3px;
-  pointer-events: none;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                tooltips.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.tooltip-inner {
-  max-width: 400px;
-}
-
-/******************************************************************************\
-|                                                                              |
-|                                   styles.scss                                |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-/******************************************************************************\
-|                                                                              |
-|                                  dialogs.scss                                |
+|                                 _dialogs.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1179,7 +642,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 
 /******************************************************************************\
 |                                                                              |
-|                            dialog-transitions.scss                           |
+|                           _dialog-transitions.scss                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1287,7 +750,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 
 /******************************************************************************\
 |                                                                              |
-|                                   styles.scss                                |
+|                                  _index.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1303,7 +766,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                   badges.js                                  |
+|                                  _badges.js                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1319,7 +782,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
   border-style: solid;
   border-radius: 5px;
   border-color: white;
-  background: #3A76AF;
+  background-color: #3A76AF;
 }
 .badge i {
   height: 10px;
@@ -1342,7 +805,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 
 /******************************************************************************\
 |                                                                              |
-|                                   buttons.scss                               |
+|                                 _buttons.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1397,7 +860,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 
 /******************************************************************************\
 |                                                                              |
-|                                   forms.scss                                 |
+|                                  _forms.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1538,12 +1001,12 @@ label.error.valid {
   border: 1px solid #c2002f;
 }
 
-/*
- * popover styles
- */
-.popover {
-  max-width: 360px;
-  width: auto;
+fieldset {
+  margin-top: 20px;
+}
+fieldset legend {
+  font-weight: bold;
+  color: #3A76AF;
 }
 
 @media (min-width: 480px) {
@@ -1586,7 +1049,244 @@ body[device=phone] .form-group > div {
 
 /******************************************************************************\
 |                                                                              |
-|                                popovers.scss                                 |
+|                               _form-groups.scss                              |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the dom and svg visual styles for this application.      |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
+\******************************************************************************/
+.form-group {
+  margin: 10px 0;
+}
+.form-group:first-child {
+  margin-top: 0;
+}
+.form-group:last-child {
+  margin-bottom: 0;
+}
+.form-group + table {
+  margin-top: 10px;
+}
+.form-group .controls {
+  min-height: 30px;
+  margin-bottom: 10px;
+}
+.form-group .controls .control-inline,
+.form-group .controls .checkbox-inline,
+.form-group .controls .radio-inline,
+.form-group .controls .color-inline,
+.form-group .controls .range-input {
+  display: inline-block;
+}
+.form-group .controls .control-inline,
+.form-group .controls .checkbox-inline,
+.form-group .controls .radio-inline,
+.form-group .controls .range-input {
+  margin-right: 10px;
+}
+.form-group .controls .control-inline input,
+.form-group .controls .checkbox-inline input,
+.form-group .controls .radio-inline input,
+.form-group .controls .range-input input {
+  margin-top: 10px;
+}
+.form-group .controls .control-inline label,
+.form-group .controls .checkbox-inline label,
+.form-group .controls .radio-inline label,
+.form-group .controls .range-input label {
+  display: inline;
+  padding-top: 0;
+}
+.form-group .controls .control-inline label.left,
+.form-group .controls .checkbox-inline label.left,
+.form-group .controls .radio-inline label.left,
+.form-group .controls .range-input label.left {
+  float: left;
+  text-align: right;
+  margin-right: 10px;
+}
+.form-group .controls .control-inline label.right,
+.form-group .controls .checkbox-inline label.right,
+.form-group .controls .radio-inline label.right,
+.form-group .controls .range-input label.right {
+  float: right;
+  text-align: left;
+  margin-left: 10px;
+}
+.form-group .controls .control-inline input[type=text], .form-group .controls .control-inline input[type=number],
+.form-group .controls .checkbox-inline input[type=text],
+.form-group .controls .checkbox-inline input[type=number],
+.form-group .controls .radio-inline input[type=text],
+.form-group .controls .radio-inline input[type=number],
+.form-group .controls .range-input input[type=text],
+.form-group .controls .range-input input[type=number] {
+  height: 25px;
+  line-height: 15px;
+}
+.form-group .controls .control-inline input[type=range],
+.form-group .controls .checkbox-inline input[type=range],
+.form-group .controls .radio-inline input[type=range],
+.form-group .controls .range-input input[type=range] {
+  width: 150px;
+  padding: 0;
+}
+.form-group .controls > i {
+  position: relative;
+  line-height: 30px;
+  vertical-align: middle;
+}
+.form-group .controls > select {
+  padding: 3px 10px;
+  float: left;
+  border-width: 1px;
+  border-style: solid;
+  margin-right: 10px;
+}
+.form-group .controls > select + label {
+  margin-top: 7px;
+}
+.form-group .controls .files, .form-group .controls .connections {
+  display: inline-block;
+  min-height: 100px;
+  float: left;
+}
+.form-group .form-label, .form-group .control-label {
+  vertical-align: top;
+  padding-top: 5px;
+  padding-right: 15px;
+  line-height: 15px;
+  /*
+  &::after {
+  	content: ":"
+  }
+  */
+}
+.form-group .form-label i:not(.form-icon), .form-group .control-label i:not(.form-icon) {
+  margin-right: 5px;
+}
+.form-group .buttons {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.form-group .buttons .btn {
+  margin-bottom: 10px;
+}
+
+.hide-label-icons label i {
+  display: none;
+}
+.hide-label-icons .form-group .form-label:not(.form-label-static) i, .hide-label-icons .form-group .control-label i {
+  display: none;
+}
+
+form + form .form-group:first-child {
+  margin-top: 0;
+}
+
+.form-horizontal .form-group .form-label, .form-horizontal .form-group .control-label {
+  float: left;
+  text-align: right;
+  width: 25%;
+  line-height: 20px;
+}
+.form-horizontal .form-group > .controls, .form-horizontal .form-group > .static-controls, .form-horizontal .form-group > .form-control, .form-horizontal .form-group > .form-control-static, .form-horizontal .form-group > .input-group {
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+.form-horizontal .form-group > .controls.wide, .form-horizontal .form-group > .static-controls.wide, .form-horizontal .form-group > .form-control.wide, .form-horizontal .form-group > .form-control-static.wide, .form-horizontal .form-group > .input-group.wide {
+  width: 75%;
+}
+.form-horizontal .form-group > .form-control-static {
+  padding-top: 0;
+}
+.form-horizontal .form-group .radio, .form-horizontal .form-group .checkbox, .form-horizontal .form-group .radio-inline, .form-horizontal .form-group .checkbox-inline, .form-horizontal .form-group .color-inline {
+  padding-top: 0;
+}
+
+/*
+.vertically.scrollable form {	
+	.form-group:first-child {
+		margin-top: 0;
+	}
+}
+*/
+.multi-column.row {
+  /*
+  .panel .content:not(:empty) {
+  	min-height: 75px;
+  }
+  */
+}
+.multi-column.row .panel .content {
+  /*
+  .list form:first-of-type {
+   	min-height: 75px;
+  }
+  */
+}
+.multi-column.row .panel .content .form-group {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  line-height: 25px;
+}
+.multi-column.row .panel .content .form-group:first-child,
+.multi-column.row .panel .content .buttons + .form-group {
+  margin-top: 0;
+}
+.multi-column.row .panel .content .form-group:last-child {
+  margin-bottom: 0;
+}
+.multi-column.row .panel .content .list:empty {
+  display: none;
+}
+.multi-column.row .panel .content:empty {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .list form :not(.details) .form-group .form-label {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  form.form-horizontal .form-group .form-label,
+  form.form-horizontal .form-group .control-label {
+    width: 100%;
+    text-align: left;
+  }
+  form.form-horizontal .form-group .form-control-static {
+    width: 100%;
+  }
+  form.form-horizontal .form-group label.error {
+    margin-left: 0;
+  }
+  form.form-horizontal.inline .form-group .form-label,
+  form.form-horizontal.inline .form-group .control-label {
+    float: left;
+    width: 25%;
+    text-align: right;
+  }
+  form.form-horizontal.inline .form-group .form-control-static {
+    width: 75% !important;
+  }
+}
+body[device=tablet] .form-group {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                               _popovers.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1662,7 +1362,7 @@ body[device=phone] .form-group > div {
 
 /******************************************************************************\
 |                                                                              |
-|                                  sliders.scss                                |
+|                                 _sliders.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1741,7 +1441,7 @@ input[type=range]::-moz-range-thumb {
 
 /******************************************************************************\
 |                                                                              |
-|                                   tabs.scss                                  |
+|                                  _tabs.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1750,50 +1450,59 @@ input[type=range]::-moz-range-thumb {
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
+/*
 .nav-tabs {
-  border-bottom: 2px solid #3A76AF;
-  margin-bottom: 10px;
-}
-.nav-tabs > li {
-  margin-bottom: 0;
-  margin-top: 10px;
-  margin-left: 5px;
-  position: relative;
-}
-.nav-tabs > li > a {
-  width: 50px;
-  text-align: center;
-  padding: 10px 0;
-}
-.nav-tabs > li > a i {
-  font-size: 20px;
-}
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover {
-  background: white;
-  border-color: transparent;
-}
-.nav-tabs > li.active .badge {
-  background: #558fc7;
-}
-.nav-tabs > li:not(.active) > a i {
-  color: #b3b3b3;
-}
-.nav-tabs > li:not(.active) > a:hover {
-  border-color: transparent;
-}
-.nav-tabs > li:not(.active) > a:hover i {
-  color: grey;
-}
-.nav-tabs > li .badge {
-  position: absolute;
-  top: 1px;
-  right: 3px;
-  pointer-events: none;
-}
+	border-bottom: 2px solid colors.$brand-primary;
+	margin-bottom: 10px;
 
+	> li {
+		margin-bottom: 0;
+		margin-top: 10px;
+		margin-left: 5px;
+		position: relative;
+
+		> a {
+			text-align: center;
+			padding: 3px 10px;
+
+			i {
+				font-size: 20px;
+			}
+		}
+
+		&.active {
+			> a, > a:hover {
+				color: white;
+				background: colors.$brand-primary;
+				border-color: transparent;
+			}
+
+			.badge {
+				background: colors.$select-color;
+			}
+		}
+
+		&:not(.active) {
+			> a {
+				i {
+					color: lighten(grey, 20%);
+				}
+
+				&:hover {
+					border-color: transparent;
+
+					i {
+						color: grey;
+					}
+				}
+			}
+		}
+	}
+}
+*/
 /******************************************************************************\
 |                                                                              |
-|                                tooltips.scss                                 |
+|                               _tooltips.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1808,7 +1517,7 @@ input[type=range]::-moz-range-thumb {
 
 /******************************************************************************\
 |                                                                              |
-|                                   styles.scss                                |
+|                                  _index.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1824,7 +1533,7 @@ input[type=range]::-moz-range-thumb {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
-|                                 headers.scss                                 |
+|                                 _headers.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1833,6 +1542,9 @@ input[type=range]::-moz-range-thumb {
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
+#header {
+  min-height: 40px;
+}
 #header #brand {
   display: flex;
 }
@@ -1848,27 +1560,32 @@ input[type=range]::-moz-range-thumb {
 #header .navbar {
   background-color: #3A76AF;
   border: none;
-  height: 50px;
+  height: inherit;
+  min-height: inherit;
   margin: 0;
 }
 #header .navbar .navbar-brand {
   padding: 0 15px;
   color: white;
+  height: inherit;
 }
 #header .navbar .navbar-nav {
   margin: 0;
   white-space: nowrap;
+  height: 100%;
 }
 #header .navbar .navbar-nav > li {
-  display: inline-block;
+  display: inline-flex;
+  height: 100%;
 }
 #header .navbar .navbar-nav > li > a {
   color: white;
   cursor: pointer;
-  line-height: 30px;
-  padding: 10px 15px;
+  padding: 0 15px;
   min-width: 50px;
   text-align: center;
+  background: none;
+  margin: auto;
 }
 #header .navbar .navbar-nav > li > a i + span {
   margin-left: 5px;
@@ -1876,7 +1593,7 @@ input[type=range]::-moz-range-thumb {
 
 /******************************************************************************\
 |                                                                              |
-|                                  icons.scss                                  |
+|                                  _icons.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1910,7 +1627,7 @@ i.rotated.reversed {
 
 /******************************************************************************\
 |                                                                              |
-|                                  layout.scss                                 |
+|                                 _layout.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -1946,7 +1663,7 @@ body > div {
 }
 
 #header {
-  height: 50px;
+  height: 40px;
   flex-shrink: 0;
   position: relative;
   z-index: 1;
@@ -2017,6 +1734,7 @@ canvas {
 }
 
 .mainbar {
+  display: flex;
   overflow: auto;
 }
 
@@ -2095,14 +1813,6 @@ span.highlighted {
   font-size: 12px;
 }
 
-fieldset {
-  margin-top: 20px;
-}
-fieldset legend {
-  font-weight: bold;
-  color: #3A76AF;
-}
-
 .hidden {
   display: none;
 }
@@ -2137,7 +1847,7 @@ fieldset legend {
 }
 /******************************************************************************\
 |                                                                              |
-|                                  pages.scss                                  |
+|                                 _pages.scss                                  |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2154,17 +1864,29 @@ fieldset legend {
   min-height: 100%;
   overflow-y: auto;
 }
-#page .container {
+#page .contents {
   padding-top: 50px;
   padding-bottom: 50px;
   flex-grow: 1;
 }
-#page .figure {
+#page .contents .figure {
   max-width: 75%;
   margin: auto;
 }
-#page .buttons button {
+#page .contents .figure.small {
+  max-width: 50%;
+}
+#page .contents .figure.very.small {
+  max-width: 25%;
+}
+#page .contents .buttons button {
   margin-top: 10px;
+}
+#page .contents ul, #page .contents ol {
+  padding-inline-start: 20px;
+}
+#page .contents ul li, #page .contents ol li {
+  padding-inline-start: 20px;
 }
 #page #footer {
   bottom: 0;
@@ -2219,7 +1941,11 @@ fieldset legend {
   height: 100%;
 }
 
+.plots {
+  margin: auto;
+}
 .plots .plot {
+  float: left;
   max-width: 50%;
   max-height: 50%;
   margin: auto;
@@ -2227,7 +1953,7 @@ fieldset legend {
 
 /******************************************************************************\
 |                                                                              |
-|                                 sections.scss                                |
+|                                _sections.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2313,7 +2039,7 @@ body[device=phone] .page .section > .row > div + div {
 
 /******************************************************************************\
 |                                                                              |
-|                                 sidebar.scss                                 |
+|                                _sidebar.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2344,6 +2070,10 @@ body[device=phone] .page .section > .row > div + div {
 }
 .sidebar .panel .header input[type=checkbox] {
   margin-right: 15px;
+}
+.sidebar .panel .header .badge {
+  position: absolute;
+  margin: 5px;
 }
 .sidebar .panel > .radio-buttons {
   text-align: center;
@@ -2429,7 +2159,7 @@ body[device=phone] .page .section > .row > div + div {
 }
 /******************************************************************************\
 |                                                                              |
-|                                  spinners.scss                               |
+|                                 _spinners.scss                               |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2485,7 +2215,7 @@ body[device=phone] .page .section > .row > div + div {
 
 /******************************************************************************\
 |                                                                              |
-|                                splitters.scss                                |
+|                               _splitters.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2583,7 +2313,7 @@ body[device="phone"] {
 */
 /******************************************************************************\
 |                                                                              |
-|                                    tables.scss                               |
+|                                  _tables.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2650,7 +2380,7 @@ table tbody tr:not(.first) td.duplicate {
 
 /******************************************************************************\
 |                                                                              |
-|                                 toolbar.scss                                 |
+|                               _toolbars.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2676,7 +2406,7 @@ table tbody tr:not(.first) td.duplicate {
 }
 /******************************************************************************\
 |                                                                              |
-|                               typeography.scss                               |
+|                               _typeography.scss                              |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2759,7 +2489,7 @@ body[device=phone] h3 {
 
 /******************************************************************************\
 |                                                                              |
-|                                  welcome.scss                                |
+|                                 _welcome.scss                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -2926,5 +2656,33 @@ body[device=phone] h3 {
   flex-grow: 1;
   overflow: auto;
 }
+
+/******************************************************************************\
+|                                                                              |
+|                                   _index.scss                                |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
+|                                  styles.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
 
 /*# sourceMappingURL=styles.css.map */

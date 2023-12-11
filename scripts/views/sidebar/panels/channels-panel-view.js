@@ -31,6 +31,7 @@ export default BaseView.extend({
 	template: _.template(`
 		<div class="header">
 			<label><i class="fa fa-tv"></i>Channels</label>
+			<div class="badge"><%= num_channels %></div>
 			<input type="checkbox" />
 		</div>
 
@@ -89,6 +90,12 @@ export default BaseView.extend({
 	//
 	// rendering methods
 	//
+
+	templateContext: function() {
+		return {
+			num_channels: this.options.channels? this.options.channels.length : 0
+		};
+	},
 
 	onRender: function() {
 		this.showChannels(this.options.channels);

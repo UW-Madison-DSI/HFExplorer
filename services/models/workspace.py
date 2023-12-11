@@ -21,14 +21,19 @@ import json
 import cabinetry
 import pyhf
 import numpy as np
-from cabinetry.model_utils import prediction
 import matplotlib
 import fnmatch
 import shutil
+from pathlib import Path
+import glob
+from cabinetry.model_utils import prediction
 
 matplotlib.pyplot.switch_backend('Agg')
 
 class Workspace:
+
+	# workspace cache
+	workspaces = {}
 
 	#
 	# constructor
@@ -48,7 +53,7 @@ class Workspace:
 	# uploading methods
 	#
 
-	def upload(self, background, patchset):
+	def upload_files(self, background, patchset):
 
 		"""
 		Upload the workspace files.
@@ -66,6 +71,40 @@ class Workspace:
 			background.save(self.background_path())
 		if (patchset):
 			patchset.save(self.patchset_path())
+
+	#
+	# downloading methods
+	#
+
+	def upload_url(self, url):
+
+		"""
+		Download the workspace files from a url.
+
+		Parameters:
+			url: The url to download the workspace from
+		"""
+
+		from pyhf.contrib.utils import download
+		workspaceDir = 'public/workspaces/' + str(self.id)
+
+		# download workspace to folder
+		download(url + '?view=true', workspaceDir)
+
+		# copy workspace files to top level
+		for filename in Path(workspaceDir).rglob('*.json'):
+			if filename != 'patchset.json':
+
+				# copy background file to top of workspace
+				shutil.copy(filename, workspaceDir + '/background.json')
+
+				# copy patchfile to top of workspace if there is one
+				patchsetPath = os.path.dirname(filename) + '/patchset.json'
+				if (os.path.isfile(patchsetPath)):
+					shutil.copy(patchsetPath, workspaceDir + '/patchset.json')
+
+				# exit for loop
+				break
 
 	#
 	# querying methods
@@ -152,6 +191,25 @@ class Workspace:
 	# getting methods
 	#
 
+	def getWorkspace(self):
+
+		"""
+		Get a new workspace associated with an id.
+
+		Parameters:
+			id (string): The id of the workspace to create
+		"""
+
+		# check if model is in the cache
+		if (not self.id in Workspace.workspaces.values()):
+
+			# construct a workspace from a background-only model and a signal hypothesis
+			background_path = self.background_path()
+			modelspec = json.load(open(background_path))
+			Workspace.workspaces[self.id] = pyhf.Workspace(modelspec)
+
+		return Workspace.workspaces[self.id]
+
 	def get_patches(self):
 
 		"""
@@ -201,15 +259,12 @@ class Workspace:
 			object: An object containing patch metadata and values
 		"""
 
-		# get paths
-		background_path = self.background_path()
-		patchset_path = self.patchset_path()
-
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = pyhf.Workspace(json.load(open(background_path)))
+		workspace = self.getWorkspace()
 
 		# apply patchset
 		if (patches):
+			patchset_path = self.patchset_path()
 			patchset = pyhf.PatchSet(json.load(open(patchset_path)))
 			workspace = patchset.apply(workspace, "_".join(str(x) for x in patches))
 
@@ -230,15 +285,12 @@ class Workspace:
 			object: An object containing the workspace parameter values
 		"""
 
-		# get paths
-		background_path = self.background_path()
-		patchset_path = self.patchset_path()
-
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = pyhf.Workspace(json.load(open(background_path)))
+		workspace = self.getWorkspace()
 
 		# apply patchset
 		if (patches):
+			patchset_path = self.patchset_path()
 			patchset = pyhf.PatchSet(json.load(open(patchset_path)))
 			workspace = patchset.apply(workspace, "_".join(str(x) for x in patches))
 
@@ -265,14 +317,12 @@ class Workspace:
 			array: An array containing the fitted workspace parameter values
 		"""
 
-		# get paths
-		background_path = self.background_path()
-		patchset_path = self.patchset_path()
-
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = pyhf.Workspace(json.load(open(background_path)))
+		workspace = self.getWorkspace()
 
+		# apply patches
 		if (patches):
+			patchset_path = self.patchset_path()
 			patchset = pyhf.PatchSet(json.load(open(patchset_path)))
 			workspace = patchset.apply(workspace, "_".join(str(x) for x in patches))
 
@@ -339,13 +389,10 @@ class Workspace:
 		if os.path.isdir(histograms_dir):
 			shutil.rmtree(histograms_dir)
 
-		# parse model spec
-		modelspec = json.load(open(background_path))
+		# construct a workspace
+		workspace = self.getWorkspace()
 
-		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = pyhf.Workspace(modelspec)
-
-		# apply patchset
+		# apply patches
 		if (patches):
 			patchset = pyhf.PatchSet(json.load(open(patchset_path)))
 			workspace = patchset.apply(workspace, "_".join(str(x) for x in patches))
@@ -377,19 +424,12 @@ class Workspace:
 			array: An array containing the list of pull plot names
 		"""
 
-		# get paths
-		workspace_dir = self.workspace_dir()
-		background_path = self.background_path()
-		patchset_path = self.patchset_path()
-
-		# parse model spec
-		modelspec = json.load(open(background_path))
-
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = pyhf.Workspace(modelspec)
+		workspace = self.getWorkspace()
 
-		# apply patchset
+		# apply patches
 		if (patches):
+			patchset_path = self.patchset_path()
 			patchset = pyhf.PatchSet(json.load(open(patchset_path)))
 			workspace = patchset.apply(workspace, "_".join(str(x) for x in patches))
 
@@ -413,7 +453,7 @@ class Workspace:
 		plot.savefig(os.path.join(self.workspace_dir(), 'pull-plot.pdf'))
 
 		# return plots in this workspace
-		return self.get_plots(workspace_dir)
+		return self.get_plots(self.workspace_dir())
 
 	#
 	# static utility methods

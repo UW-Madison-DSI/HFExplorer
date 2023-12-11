@@ -14,8 +14,10 @@
 
 from models.workspace import Workspace
 from flask import request, Response, make_response, send_file
+from pyhf.contrib.utils import download
 import random
 import logging
+import requests
 
 class WorkspaceController:
 
@@ -24,7 +26,7 @@ class WorkspaceController:
 	#
 
 	@staticmethod
-	def post_upload():
+	def post_upload_files():
 
 		"""
 		Uploads a workspace and (optionally) a patchset file.
@@ -44,9 +46,26 @@ class WorkspaceController:
 		patchset = request.files['patchset'] if 'patchset' in request.files else None;
 
 		# upload workspace files
-		workspace.upload(background, patchset)
+		workspace.upload_files(background, patchset)
 
 		# return workspace object / id
+		return {
+			'id': id
+		}
+
+	@staticmethod
+	def post_upload_url():
+
+		# parse params
+		url = request.values.get('url')
+
+		# create new workspace
+		id = random.randint(0, 999999)
+		workspace = Workspace(id)
+
+		# upload workspace from url
+		workspace.upload_url(url)
+
 		return {
 			'id': id
 		}

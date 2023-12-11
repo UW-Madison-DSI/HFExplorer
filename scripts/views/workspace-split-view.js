@@ -321,6 +321,22 @@ export default SplitView.extend({
 						}
 					})
 				}
+			},
+
+			error: function(data) {
+
+				// find error messages
+				//
+				let title = $(data.responseText).find('h1').text();
+				let message = $(data.responseText).find('.errormsg').text();
+
+				// display error dialog
+				//
+				application.error({
+					icon: 'fa fa-bug',
+					title: title || 'Workspapce Plotting Error',
+					message: message || "This workspace could not be plotted."
+				});
 			}
 		});
 	},

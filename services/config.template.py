@@ -17,7 +17,11 @@ UPLOAD_FOLDER = 'public/workspaces'
 APP_JQ = '/opt/homebrew/bin/jq'
 DEBUG = True
 HOST = 'localhost'
+
+# set port to 443 for https
 PORT = '5000'
+SSL_CERT = '/etc/letsencrypt/live/hepexplorer.net-0001/cert.pem'
+SSL_KEY = '/etc/letsencrypt/live/hepexplorer.net-0001/privkey.pem'
 
 # mail configuration - used only for contact form
 MAIL_SERVER = '<Your mail host here>'
