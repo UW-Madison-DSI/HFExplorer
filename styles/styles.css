@@ -345,6 +345,10 @@
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
+body {
+  --primary-color: #3A76AF;
+}
+
 /******************************************************************************\
 |                                                                              |
 |                                  _colors.scss                                |
@@ -384,22 +388,22 @@
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 .navbar-inverse .navbar-nav > li.active {
-  background-color: #2d5c89;
+  background-color: color-mix(in srgb, black 10%, var(--primary-color));
 }
 
 #page h1 i, #page h2 i {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 #page a, #page a:hover {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 .sidebar .panel .header > label {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 .form-group label {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -411,32 +415,32 @@ input[type=range]::-moz-range-track {
   border-color: #ececee;
 }
 input[type=range]::-webkit-slider-thumb {
-  background: #3A76AF;
-  border-color: #3A76AF;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 input[type=range]::-webkit-slider-thumb:hover {
-  background-color: #2d5c89;
-  border-color: #2d5c89;
+  background-color: color-mix(in srgb, black 10%, var(--primary-color));
+  border-color: color-mix(in srgb, black 10%, var(--primary-color));
 }
 input[type=range]::-moz-range-thumb {
-  background: #3A76AF;
-  border-color: #3A76AF;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 input[type=range]::-moz-range-thumb:hover {
-  background-color: #2d5c89;
-  border-color: #2d5c89;
+  background-color: color-mix(in srgb, black 10%, var(--primary-color));
+  border-color: color-mix(in srgb, black 10%, var(--primary-color));
 }
 input[type=range]::-ms-thumb {
-  background: #3A76AF;
-  border-color: #3A76AF;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 input[type=range]::-ms-thumb:hover {
-  background-color: #2d5c89;
-  border-color: #2d5c89;
+  background-color: color-mix(in srgb, black 10%, var(--primary-color));
+  border-color: color-mix(in srgb, black 10%, var(--primary-color));
 }
 
 .error-icon {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 /******************************************************************************\
@@ -477,6 +481,8 @@ input[type=range]::-ms-thumb:hover {
 }
 .modal .modal-dialog {
   display: flex;
+  width: 600px;
+  min-height: 400px;
   max-width: 100%;
   margin: auto;
 }
@@ -490,16 +496,14 @@ input[type=range]::-ms-thumb:hover {
   top: 0;
   display: flex;
   flex-direction: column;
-  width: auto;
-  margin: auto;
-  width: 600px;
-  min-width: 300px;
+  width: 100%;
+  height: 100%;
 }
 .modal .modal-dialog .modal-content .modal-header {
   padding: 10px;
 }
 .modal .modal-dialog .modal-content .modal-header i {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 .modal .modal-dialog .modal-content .modal-header h1 {
   font-size: 24px;
@@ -511,6 +515,9 @@ input[type=range]::-ms-thumb:hover {
 }
 .modal .modal-dialog .modal-content .modal-header.ui-draggable-handle {
   cursor: move;
+}
+.modal .modal-dialog .modal-content .modal-body {
+  flex-grow: 1;
 }
 .modal .modal-dialog .modal-content .modal-body .icon {
   font-size: 200%;
@@ -599,6 +606,9 @@ body[device=desktop] .modal.in .modal-dialog {
   }
   .modal {
     padding-bottom: 0;
+  }
+  .modal .modal-dialog {
+    height: 100%;
   }
   .modal .modal-dialog .modal-header .modal-title {
     margin-right: 0;
@@ -782,7 +792,7 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
   border-style: solid;
   border-radius: 5px;
   border-color: white;
-  background-color: #3A76AF;
+  background-color: var(--primary-color);
 }
 .badge i {
   height: 10px;
@@ -833,21 +843,12 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 }
 
 .btn-primary, .btn-primary:focus {
-  background: #3A76AF;
-  border-color: #3A76AF;
+  background: var(--primary-color);
+  border-color: var(--primary-color);
 }
 .btn-primary:hover, .btn-primary:active, .btn-primary:focus:hover, .btn-primary:focus:active {
-  background: #2d5c89;
-  border-color: #2d5c89;
-}
-
-.btn-primary[disabled], .btn-primary:focus[disabled] {
-  background: #3a76af;
-  border-color: #3a76af;
-}
-.btn-primary[disabled]:hover, .btn-primary[disabled]:active, .btn-primary:focus[disabled]:hover, .btn-primary:focus[disabled]:active {
-  background: #2d5c89;
-  border-color: #2d5c89;
+  background: color-mix(in srgb, black 10%, var(--primary-color));
+  border-color: color-mix(in srgb, black 10%, var(--primary-color));
 }
 
 .btn.btn-sm {
@@ -1006,7 +1007,7 @@ fieldset {
 }
 fieldset legend {
   font-weight: bold;
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 @media (min-width: 480px) {
@@ -1194,7 +1195,7 @@ form + form .form-group:first-child {
 .form-horizontal .form-group .form-label, .form-horizontal .form-group .control-label {
   float: left;
   text-align: right;
-  width: 25%;
+  width: 33%;
   line-height: 20px;
 }
 .form-horizontal .form-group > .controls, .form-horizontal .form-group > .static-controls, .form-horizontal .form-group > .form-control, .form-horizontal .form-group > .form-control-static, .form-horizontal .form-group > .input-group {
@@ -1558,7 +1559,7 @@ input[type=range]::-moz-range-thumb {
   margin: auto 0;
 }
 #header .navbar {
-  background-color: #3A76AF;
+  background-color: var(--primary-color);
   border: none;
   height: inherit;
   min-height: inherit;
@@ -1603,7 +1604,7 @@ input[type=range]::-moz-range-thumb {
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 .alert-icon {
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 
 i.rotated {
@@ -1789,6 +1790,10 @@ canvas {
   margin-top: 10px;
 }
 
+.columns {
+  display: flex;
+}
+
 .panel {
   box-shadow: none;
 }
@@ -1839,12 +1844,61 @@ span.highlighted {
   float: right;
 }
 
+body[device=phone] .columns {
+  flex-direction: column;
+}
+
+body[device=desktop] .columns {
+  flex-direction: row;
+}
+body[device=desktop] .columns .half-width {
+  width: 50%;
+}
+
 @media (min-width: 480px) {
   .credits {
     width: 75%;
     margin: auto;
   }
 }
+/******************************************************************************\
+|                                                                              |
+|                                  _lists.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+.file-list {
+  max-height: 300px;
+  overflow: auto;
+  padding-inline-start: 0;
+  cursor: default;
+}
+.file-list li {
+  list-style: none;
+  padding: 0 10px;
+}
+.file-list li i {
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+.file-list li.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+.file-list li.selected i {
+  color: white;
+}
+
 /******************************************************************************\
 |                                                                              |
 |                                 _pages.scss                                  |
@@ -1893,7 +1947,7 @@ span.highlighted {
   width: 100%;
   color: lightgrey;
   background: #494949;
-  border-top: 5px solid #3A76AF;
+  border-top: 5px solid var(--primary-color);
 }
 #page #footer .container {
   text-align: center;
@@ -2100,7 +2154,7 @@ body[device=phone] .page .section > .row > div + div {
   float: right;
   border-radius: 3px;
   background: #ededed;
-  color: #3A76AF;
+  color: var(--primary-color);
 }
 .sidebar .panel .params .param .impact i:nth-child(1) {
   color: limegreen;
@@ -2189,7 +2243,7 @@ body[device=phone] .page .section > .row > div + div {
   object-fit: cover;
   box-shadow: none;
   border-color: #e0e0f0;
-  border-top-color: #3A76AF;
+  border-top-color: var(--primary-color);
 }
 
 .loading {
@@ -2203,7 +2257,7 @@ body[device=phone] .page .section > .row > div + div {
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .loading .spinner {
@@ -2349,7 +2403,7 @@ table th label {
   font-weight: normal;
 }
 table tbody tr.selected {
-  background: #3A76AF;
+  background: var(--primary-color);
   color: white;
 }
 table tbody tr.highlighted {

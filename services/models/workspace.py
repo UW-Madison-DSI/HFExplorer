@@ -13,8 +13,9 @@
 ################################################################################
 
 import flask
-from flask import jsonify
 import os
+import requests
+import urllib.request
 import logging
 import subprocess
 import json
@@ -24,8 +25,9 @@ import numpy as np
 import matplotlib
 import fnmatch
 import shutil
-from pathlib import Path
 import glob
+from pathlib import Path
+from flask import jsonify
 from cabinetry.model_utils import prediction
 
 matplotlib.pyplot.switch_backend('Agg')
@@ -39,7 +41,7 @@ class Workspace:
 	# constructor
 	#
 
-	def __init__(self, id):
+	def __init__(self, id, background=None, patchset=None):
 
 		"""
 		Create a new workspace.
@@ -48,6 +50,27 @@ class Workspace:
 			id (string): The id of the workspace to create
 		"""
 		self.id = id
+		self.background = background or 'background.json'
+		self.patchset = patchset or 'patchset.json'
+
+	#
+	# utility methods
+	#
+
+	def listdir(self, path, pattern):
+
+		# find list of all paths that match pattern
+		results = [y for x in os.walk(path) for y in glob.glob(os.path.join(x[0], (pattern or '*')))]
+
+		# make paths relative to original path
+		index = len(path) + 1
+		relative_paths = set()
+		for result in results:
+			relative_paths.add(result[index:])
+		paths = list(relative_paths)
+		paths.sort()
+
+		return paths
 
 	#
 	# uploading methods
@@ -63,8 +86,11 @@ class Workspace:
 			patchset: The patchset file
 		"""
 
+		# find workspace directory
+		workspaceDir = self.workspace_dir()
+
 		# create workspace folder
-		os.mkdir(self.workspace_dir(), mode=0o755)
+		os.mkdir(workspaceDir, mode=0o755)
 
 		# save files to workspace folder
 		if (background):
@@ -85,26 +111,52 @@ class Workspace:
 			url: The url to download the workspace from
 		"""
 
+		# strip query param
+		url = url.replace('?view=true', '')
+
+		# look up file type
+		response = json.loads(requests.get(url).text)
+		file_type = response['file_contents']
+
+		# download workspace to folder
+		if (file_type != 'Binary'):
+			self.upload_file_from_url(url)
+		else:
+			self.upload_archive_from_url(url)
+
+	def upload_file_from_url(self, url):
+
+		"""
+		Download the workspace file from a url.
+
+		Parameters:
+			url: The url to download the workspace from
+		"""
+
+		import urllib
+		workspaceDir = 'public/workspaces/' + str(self.id)
+
+		# make workspace directory
+		os.mkdir(workspaceDir)
+
+		# download file to workspace directory
+		filename = workspaceDir + '/background.json'
+		urllib.request.urlretrieve(url + '?view=true', filename)
+
+	def upload_archive_from_url(self, url):
+
+		"""
+		Download the workspace archive from a url.
+
+		Parameters:
+			url: The url to download the workspace from
+		"""
+
 		from pyhf.contrib.utils import download
 		workspaceDir = 'public/workspaces/' + str(self.id)
 
-		# download workspace to folder
+		# download workspace to workspace directory
 		download(url + '?view=true', workspaceDir)
-
-		# copy workspace files to top level
-		for filename in Path(workspaceDir).rglob('*.json'):
-			if filename != 'patchset.json':
-
-				# copy background file to top of workspace
-				shutil.copy(filename, workspaceDir + '/background.json')
-
-				# copy patchfile to top of workspace if there is one
-				patchsetPath = os.path.dirname(filename) + '/patchset.json'
-				if (os.path.isfile(patchsetPath)):
-					shutil.copy(patchsetPath, workspaceDir + '/patchset.json')
-
-				# exit for loop
-				break
 
 	#
 	# querying methods
@@ -152,7 +204,7 @@ class Workspace:
 			string
 		"""
 
-		return os.path.join(self.workspace_dir(), 'background.json')
+		return os.path.join(self.workspace_dir(), self.background)
 
 	def patchset_path(self):
 
@@ -163,7 +215,7 @@ class Workspace:
 			string
 		"""
 
-		return os.path.join(self.workspace_dir(), 'patchset.json')
+		return os.path.join(self.workspace_dir(), self.patchset)
 
 	def histogram_path(self, channel):
 
@@ -191,7 +243,7 @@ class Workspace:
 	# getting methods
 	#
 
-	def getWorkspace(self):
+	def get_workspace(self):
 
 		"""
 		Get a new workspace associated with an id.
@@ -209,6 +261,21 @@ class Workspace:
 			Workspace.workspaces[self.id] = pyhf.Workspace(modelspec)
 
 		return Workspace.workspaces[self.id]
+
+	def get_contents(self, pattern):
+
+		"""
+		Get a workspace's contents.
+
+		Parameters:
+			id (string): The id of the workspace to get the contents of.
+		"""
+
+		# find workspace directory
+		workspaceDir = 'public/workspaces/' + str(self.id)
+
+		# list contents of workspace directory
+		return self.listdir(workspaceDir, pattern)
 
 	def get_patches(self):
 
@@ -260,7 +327,7 @@ class Workspace:
 		"""
 
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = self.getWorkspace()
+		workspace = self.get_workspace()
 
 		# apply patchset
 		if (patches):
@@ -286,7 +353,7 @@ class Workspace:
 		"""
 
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = self.getWorkspace()
+		workspace = self.get_workspace()
 
 		# apply patchset
 		if (patches):
@@ -318,7 +385,7 @@ class Workspace:
 		"""
 
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = self.getWorkspace()
+		workspace = self.get_workspace()
 
 		# apply patches
 		if (patches):
@@ -390,7 +457,7 @@ class Workspace:
 			shutil.rmtree(histograms_dir)
 
 		# construct a workspace
-		workspace = self.getWorkspace()
+		workspace = self.get_workspace()
 
 		# apply patches
 		if (patches):
@@ -425,7 +492,7 @@ class Workspace:
 		"""
 
 		# construct a workspace from a background-only model and a signal hypothesis
-		workspace = self.getWorkspace()
+		workspace = self.get_workspace()
 
 		# apply patches
 		if (patches):

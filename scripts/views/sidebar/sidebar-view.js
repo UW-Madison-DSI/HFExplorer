@@ -16,6 +16,7 @@
 \******************************************************************************/
 
 import PanelsView from '../../views/layout/panels-view.js';
+import FilesPanelView from '../../views/sidebar/panels/files-panel-view.js';
 import ActionsPanelView from '../../views/sidebar/panels/actions-panel-view.js';
 import PlotsPanelView from '../../views/sidebar/panels/plots-panel-view.js';
 import PatchesPanelView from '../../views/sidebar/panels/patches-panel-view.js';
@@ -28,7 +29,7 @@ export default PanelsView.extend({
 	// attributes
 	//
 
-	panels: ['plots', 'patches', 'channels', 'params'],
+	panels: ['files', 'plots', 'patches', 'channels', 'params'],
 
 	//
 	// querying methods
@@ -47,6 +48,12 @@ export default PanelsView.extend({
 	//
 	// panel rendering methods
 	//
+
+	showFiles: function(background, patchset, options) {
+		this.options.background = background;
+		this.options.patchset = patchset;
+		this.showPanel('files', options);
+	},
 
 	showPlots: function(plots, options) {
 		this.options.plots = plots;
@@ -80,6 +87,9 @@ export default PanelsView.extend({
 		// show specified panel
 		//
 		switch (panel) {
+			case 'files':
+				this.showFilesPanel();
+				break;
 			case 'actions':
 				this.showActionsPanel();
 				break;
@@ -95,6 +105,14 @@ export default PanelsView.extend({
 			case 'params':
 				this.showParamsPanel(options);
 				break;
+		}
+	},
+
+	showFilesPanel: function() {
+		if (this.model.has('background')) {
+			this.showChildView('files', new FilesPanelView({
+				model: this.model
+			}));
 		}
 	},
 

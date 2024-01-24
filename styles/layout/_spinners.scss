@@ -15,13 +15,13 @@
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 
-@use "../colors/branding";
+@use "../colors/colors";
 
 //
 // colors
 //
 
-$color: branding.$primary-color;
+$color: var(--primary-color);
 $background-color: fade-in(#e0e0f0, 0.5);
 
 //
@@ -58,7 +58,7 @@ $background-color: fade-in(#e0e0f0, 0.5);
 		right: 0;
 		top: 0;
 		bottom: 0;
-		background-color: fade-in(white, 0.5);
+		background-color: rgba(255, 255, 255, 0.5)
 	}
 }
 	

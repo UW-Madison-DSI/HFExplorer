@@ -17,3 +17,7 @@
 $primary-color: #3A76AF;
 $light-color: lighten($primary-color, 10%);
 $dark-color: darken($primary-color, 10%);
+
+body {
+	--primary-color: #3A76AF;
+}

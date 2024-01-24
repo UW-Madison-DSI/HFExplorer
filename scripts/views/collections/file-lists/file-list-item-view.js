@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                                  welcome-view.js                             |
+|                             file-list-item-view.js                           |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines the initial welcome view of the application.             |
+|        This defines an abstract view that shows a single list item.          |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -12,13 +12,10 @@
 |        'LICENSE.md', which is part of this source code distribution.         |
 |                                                                              |
 |******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+|        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../views/base-view.js';
-import UploadLocalFormView from '../views/forms/upload-local-form-view.js';
-import UploadRemoteFormView from '../views/forms/upload-remote-form-view.js';
-import '../../vendor/bootstrap/js/tab.js';
+import BaseView from '../../../views/base-view.js';
 
 export default BaseView.extend({
 
@@ -26,38 +23,63 @@ export default BaseView.extend({
 	// attributes
 	//
 
-	regions: {
-		local: '.local-panel',
-		remote: '.remote-panel'
+	tagName: 'li',
+
+	template: _.template(`<i class="fa <%= icon %>"></i><%= name %>`),
+
+	events: {
+		'click': 'onClick'
+	},
+
+	//
+	// querying methods
+	//
+
+	isSelected: function() {
+		return this.$el.hasClass('selected');
+	},
+
+	//
+	// selection methods
+	//
+
+	select: function() {
+		this.$el.addClass('selected');
+	},
+
+	deselect: function() {
+		this.$el.removeClass('selected');
 	},
 
 	//
 	// rendering methods
 	//
 
-	toCSS: function(object) {
-		if (!object) {
-			return '';
-		}
-		let string = JSON.stringify(object);
-		string = string.replace(/"/g, '');
-		string = string.replace(/,/g, ';');
-		string = string.replace('{', '');
-		string = string.replace('}', '');
-		return string;
-	},
-
 	templateContext: function() {
 		return {
-			image_style: this.toCSS(defaults.welcome.splash.image.style)
-		};
+			icon: 'fa-file',
+			name: this.model.get('name')
+		}
 	},
 
 	onRender: function() {
+		if (this.options.selected) {
+			this.select();
+		}
+	},
 
-		// show child views
+	onClick: function(event) {
+		this.parent.deselectAll();
+		this.select();
+
+		// block from parent
 		//
-		this.showChildView('local', new UploadLocalFormView());
-		this.showChildView('remote', new UploadRemoteFormView());
+		event.stopPropagation();
+
+		// perform callback
+		//
+		if (this.options.onselect) {
+			this.options.onselect(this);
+		}
 	}
 });

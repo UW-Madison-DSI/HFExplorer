@@ -53,7 +53,7 @@
 		<h2><i class="fa fa-play"></i>Getting Started</h2>
 		<p>To get started, just upload your <a href="https://iris-hep.org/projects/pyhf.html" target="_blank">pyhf</a> workspace JSON files. </p>
 
-		<form class="form-horizontal">
+		<form class="form-horizontal" style="position:relative">
 
 			<ul class="nav nav-tabs" role="tablist">
 
@@ -77,68 +77,9 @@
 			<div class="tab-content">
 
 				<div role="tabpanel" class="local-panel tab-pane active">
-
-					<div class="workspace form-group">
-						<label class="control-label">&nbsp;</label>
-						<div class="controls">
-							<label>Step 1: Select Workspace</label>
-							<div>First, select your main workspace .json file. </div>
-
-							<button class="background btn btn-light" style="float:left; margin-right:10px">Select Workspace</button>
-
-							<input type="file" id="background-file" class="form-control" style="display:none; width:50%" />
-						</div>
-					</div>
-
-					<div class="additions form-group">
-						<label class="control-label">&nbsp;</label>
-						<div class="controls">
-							<label>Step 2: Select Patchset (optional)</label>
-							<div>Next, optionally select a patchset to merge. </div>
-
-							<button class="patchset btn btn-light" style="float:left; margin-right:10px">Select Patchset</button>
-
-							<button class="background2 btn btn-light" style="float:left; margin-right:10px; display:none">Select Workspace</button>
-
-							<input type="file" id="patchset-file" class="form-control" style="float:left; margin-right:10px; display:none; width:50%" />
-
-							<input type="file" id="background2-file" class="hidden form-control" style="float:left; margin-right:10px; display:none; width:50%" />
-
-							<button class="clear btn btn-light" disabled>Clear</button>
-						</div>
-					</div>
-
-					<div class="upload-files form-group">
-						<label class="control-label">&nbsp;</label>
-						<div class="controls">
-							<label>Step 3: Upload</label>
-							<div>Upload your files. </div>
-							<button class="submit btn btn-primary" disabled>Upload</button>
-						</div>
-					</div>
 				</div>
 
 				<div role="tabpanel" class="remote-panel tab-pane">
-
-					<div class="url form-group">
-						<label class="control-label">&nbsp;</label>
-						<div class="controls">
-							<label>Step 1: Enter URL</label>
-							<div>First, enter the URL to a JSON workspace.  Most often, these will be URLs from <a href="http://hepdata.net">www.hepdata.net</a>. This must be a URL to a pyhf workspace. </div>
-
-							<label>Workspace URL</label>
-							<input type="text" class="form-control" value="<%= defaults.welcome.workspace_url %>" />
-						</div>
-					</div>
-
-					<div class="upload-url form-group">
-						<label class="control-label">&nbsp;</label>
-						<div class="controls">
-							<label>Step 2: Upload</label>
-							<div>Upload a workspace from this url. </div>
-							<button class="submit btn btn-primary">Upload</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>

@@ -62,6 +62,10 @@
 			{
 				"name": "Single-Channel Workspace",
 				"id": "singlechannel"
+			},
+			{
+				"name": "Multi-File Workspace",
+				"id": "multifile?background=RegionA%2FBkgOnly.json&patchset=RegionA%2Fpatchset.json"
 			}
 		],
 		"tagline": "Data viewer for HistFactory (hf) high energy physics modeling",

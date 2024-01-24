@@ -43,8 +43,9 @@ export default {
 			}, options.delay);
 		} else {
 			this.spinner = $('<div class="spinner">');
-			this.$el.append(this.spinner);
-			this.$el.addClass('loading');
+			this.loadable = options && options.el? options.el : this.$el;
+			$(this.loadable).append(this.spinner);
+			$(this.loadable).addClass('loading');
 		}
 	},
 
@@ -52,7 +53,7 @@ export default {
 		if (this.spinner) {
 			this.spinner.remove();
 			this.spinner = null;
-			this.$el.removeClass('loading');
+			$(this.loadable).removeClass('loading');
 		}
 		this.cancelSpinner();
 	},

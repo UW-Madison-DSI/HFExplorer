@@ -11,7 +11,6 @@
 \******************************************************************************/
 
 @use "../colors/colors";
-@use "../colors/branding";
 
 //
 // variables
@@ -28,7 +27,7 @@ $round-table-border-radius: 10px;
 
 $header-background-color: colors.$light-grey;
 $header-border-color: colors.$medium-grey;
-$select-color: branding.$primary-color;
+$select-color: var(--primary-color);
 
 //
 // styles

@@ -11,7 +11,6 @@
 \******************************************************************************/
 
 @use "../bootstrap/variables";
-@use "../colors/branding";
 
 //
 // variables
@@ -23,7 +22,7 @@ $padding: 50px;
 // colors
 //
 
-$footer-border-color: branding.$primary-color;
+$footer-border-color: var(--primary-color);
 
 //
 // styles

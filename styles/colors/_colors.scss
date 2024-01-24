@@ -32,3 +32,23 @@ $select-color: branding.$light-color;
 $highlight-color: $select-color;
 $select-fill: lighten($select-color, 33%);
 $highlight-fill: lighten($highlight-color, 33%);
+
+//
+// mixins
+//
+
+@function lighten($color, $amount) {
+	@return color-mix(in srgb, white $amount, $color);
+}
+
+@function darken($color, $amount) {
+	@return color-mix(in srgb, black $amount, $color);
+}
+
+@function fade($color, $amount) {
+	@return color-mix(in srgb, $color $amount, transparent);
+}
+
+@function blend($color1, $color2, $amount: 50%) {
+	@return color-mix(in srgb, $color2 $amount, $color1);
+}

@@ -181,6 +181,10 @@ canvas {
 	}
 }
 
+.columns {
+	display: flex;
+}
+
 .panel {
 	box-shadow: none;
 }
@@ -257,7 +261,31 @@ span.highlighted {
 }
 
 //
-// non-mobile modals
+// mobile styles
+//
+
+body[device="phone"] {
+	.columns {
+		flex-direction: column;
+	}
+}
+
+//
+// desktop styles
+//
+
+body[device="desktop"] {
+	.columns {
+		flex-direction: row;
+
+		.half-width {
+			width: 50%;
+		}
+	}
+}
+
+//
+// non-small styles
 //
 
 @media (min-width: variables.$screen-xs-min) {

@@ -30,7 +30,7 @@ export default Backbone.Router.extend({
 		// main routes
 		//
 		'': 'showWelcome',
-		'workspaces/:id': 'showWorkspace',
+		'workspaces/:id(?*query_string)': 'showWorkspace',
 
 		// info routes
 		//
@@ -60,16 +60,19 @@ export default Backbone.Router.extend({
 		});
 	},
 
-	showWorkspace: function(id) {
+	showWorkspace: function(id, queryString) {
 		import(
 			'./views/workspace-view.js'
 		).then((WorkspaceView) => {
+			var urlParams = new URLSearchParams(queryString);
 
 			// show home view
 			//
 			application.show(new WorkspaceView.default({
 				model: new Workspace({
-					id: id
+					id: id,
+					background: urlParams.get('background'),
+					patchset: urlParams.get('patchset')
 				})
 			}), {
 				full_screen: true

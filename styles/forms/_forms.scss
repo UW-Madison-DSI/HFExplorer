@@ -16,13 +16,12 @@
 \******************************************************************************/
 
 @use "../bootstrap/variables";
-@use "../colors/branding";
 
 //
 // colors
 //
 
-$legend-color: branding.$primary-color;
+$legend-color: var(--primary-color);
 
 //
 // styles

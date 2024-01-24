@@ -12,7 +12,6 @@
 
 @use "../bootstrap/variables";
 @use "../colors/colors";
-@use "../colors/branding";
 
 //
 // variables
@@ -26,7 +25,7 @@ $sidebar-panel-padding: 10px;
 
 $background-color: colors.$light-grey;
 $text-color: #303030;
-$highlight-color: branding.$primary-color;
+$highlight-color: var(--primary-color);
 $border-color: colors.$medium-grey;
 
 //

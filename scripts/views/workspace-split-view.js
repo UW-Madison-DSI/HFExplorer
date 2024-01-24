@@ -44,6 +44,7 @@ export default SplitView.extend({
 
 	getSideBarView: function() {
 		return new SideBarView({
+			model: this.model,
 			parent: this,
 
 			// callbacks

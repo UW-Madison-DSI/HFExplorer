@@ -1,57 +1,48 @@
 /******************************************************************************\
 |                                                                              |
-|                                  _theme.scss                                 |
+|                                  _lists.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
 |        This defines the visual styling rules used in this application.       |
 |                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
 |******************************************************************************|
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 
-@use "colors";
-@use "colored-sliders";
+@use "../bootstrap/variables";
 
 //
 // styles
 //
 
-.navbar-inverse .navbar-nav {
-	> li.active {
-		background-color: colors.darken(var(--primary-color), 10%);
-	}
-}
+.file-list {
+	max-height: 300px;
+	overflow: auto;
+	padding-inline-start: 0;
+	cursor: default;
 
-#page {
-	h1, h2 {
+	li {
+		list-style: none;
+		padding: 0 10px;
+		
 		i {
 			color: var(--primary-color);
+			margin-right: 5px;
+		}
+
+		&.selected {
+			background-color: var(--primary-color);
+			color: white;
+
+			i {
+				color: white;
+			}
 		}
 	}
-
-	a, a:hover {
-		color: var(--primary-color);
-	}
-}
-
-.sidebar {
-	.panel {
-		.header > label {
-			color: var(--primary-color);
-		}
-	}
-}
-
-.form-group label {
-	color: var(--primary-color);
-}
-
-input[type="range"] {
-	@include colored-sliders.track(colors.$light-grey);
-	@include colored-sliders.thumb(var(--primary-color), colors.darken(var(--primary-color), 10%));
-}
-
-.error-icon {
-	color: var(--primary-color);
-}
+}	

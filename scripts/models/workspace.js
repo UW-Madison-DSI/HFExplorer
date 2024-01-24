@@ -16,6 +16,7 @@
 \******************************************************************************/
 
 import BaseModel from '../models/base-model.js';
+import BaseCollection from '../collections/base-collection.js';
 
 export default BaseModel.extend({
 
@@ -24,7 +25,9 @@ export default BaseModel.extend({
 	//
 
 	defaults: {
-		id: undefined
+		id: undefined,
+		background: undefined,
+		patchset: undefined
 	},
 
 	//
@@ -51,6 +54,21 @@ export default BaseModel.extend({
 
 	getPullPlotUrl: function() {
 		return config.server + '/workspaces/' + this.get('id') + '/pull-plot';
+	},
+
+	//
+	// converting methods
+	//
+
+	filesToCollection: function(files) {
+		files.sort();
+		let collection = new BaseCollection();
+		for (let i = 0; i < files.length; i++) {
+			collection.add(new BaseModel({
+				name: files[i]
+			}));
+		}
+		return collection;
 	},
 
 	//
@@ -85,12 +103,46 @@ export default BaseModel.extend({
 	// ajax fetching methods
 	//
 
-	fetchPatches: function(options) {
-		let url = config.server + '/workspaces/' + this.get('id') + '/patches';
+	fetchContents: function(pattern, options) {
+		let url = config.server + '/workspaces/' + this.get('id') + '/contents';
+		let data = {};
+
+		// format data
+		//
+		if (pattern) {
+			data.pattern = pattern
+		}
+
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'GET',
-			dataType: 'JSON'
+			dataType: 'JSON',
+			data: data
+		}));
+	},
+
+	fetchPatches: function(options) {
+		let url = config.server + '/workspaces/' + this.get('id') + '/patches';
+		let data = {};
+
+		// format data
+		//
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
+
+		// make request
+		//
+		$.ajax(_.extend(options, {
+			url: url,
+			method: 'GET',
+			dataType: 'JSON',
+			data: data
 		}));
 	},
 
@@ -98,10 +150,20 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/channels';
 		let data = {};
 
+		// format data
+		//
 		if (options.patches) {
 			data.patches = options.patches.join('_');
 		}
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
 
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'GET',
@@ -114,10 +176,20 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/params';
 		let data = {};
 
-		if (options.patches) {
+		// format data
+		//
+		if (options.patches && options.patches.length > 0) {
 			data.patches = options.patches.join('_')
 		}
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
 
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'GET',
@@ -141,13 +213,23 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/histograms';
 		let data = {};
 
+		// format data
+		//
 		if (options.patches) {
 			data.patches = options.patches.join('_');
 		}
 		if (options.params) {
 			data.params = options.params;
 		}
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
 
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'POST',
@@ -160,13 +242,23 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/pull-plot';
 		let data = {};
 
+		// format data
+		//
 		if (options.patches) {
 			data.patches = options.patches.join('_');
 		}
 		if (options.params) {
 			data.params = options.params;
 		}
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
 
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'POST',
@@ -179,10 +271,20 @@ export default BaseModel.extend({
 		let url = config.server + '/workspaces/' + this.get('id') + '/fit';
 		let data = {};
 
+		// format data
+		//
 		if (options.patches) {
 			data.patches = options.patches.join('_');
 		}
+		if (this.has('background')) {
+			data.background = this.get('background')
+		}
+		if (this.has('patchset')) {
+			data.patchset = this.get('patchset')
+		}
 
+		// make request
+		//
 		$.ajax(_.extend(options, {
 			url: url,
 			method: 'GET',

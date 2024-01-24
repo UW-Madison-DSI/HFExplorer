@@ -16,15 +16,13 @@
 \******************************************************************************/
 
 @use "../colors/colors";
-@use "../colors/branding";
 
 //
 // colors
 //
 
 $btn-color: colors.$light-grey;
-$btn-primary-color: branding.$primary-color;
-$btn-primary-disabled-color: fade-in(branding.$primary-color, 0.5);
+$btn-primary-color: var(--primary-color);
 
 //
 // styles
@@ -50,18 +48,8 @@ $btn-primary-disabled-color: fade-in(branding.$primary-color, 0.5);
 	border-color: $btn-primary-color;
 
 	&:hover, &:active {
-		background: darken($btn-primary-color, 10%);
-		border-color: darken($btn-primary-color, 10%);
-	}
-}
-
-.btn-primary[disabled], .btn-primary:focus[disabled] {
-	background: $btn-primary-disabled-color;
-	border-color: $btn-primary-disabled-color;
-
-	&:hover, &:active {
-		background: darken($btn-primary-disabled-color, 10%);
-		border-color: darken($btn-primary-disabled-color, 10%);
+		background: colors.darken($btn-primary-color, 10%);
+		border-color: colors.darken($btn-primary-color, 10%);
 	}
 }
 

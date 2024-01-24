@@ -34,20 +34,16 @@ app = Flask(__name__, static_folder='../', static_url_path="/")
 # configure app fron config.py
 app.config.from_object(config)
 
-
 ################################################################################
 #                           http to https redirect                             #
 ################################################################################
 
 if (app.config['PORT'] == 443):
-	@app.before_request
-	def redirect_https():
-		if not request.url.startswith('https://'):
-		# if not request.is_secure:
-			if request.url.startswith('http://'):
-				return redirect(request.url.replace("http://", "https://"))
-			else:
-				return redirect("https://" + request.url)
+    @app.before_request
+    def before_request():
+        if not request.is_secure:
+            url = request.url.replace('http://', 'https://', 1)
+            return redirect(url, code=301)
 
 ################################################################################
 #                    request parameter parsing methods                         #
@@ -130,7 +126,7 @@ def catch_all(path):
 	return app.send_static_file("index.html")
 
 ################################################################################
-#                              workspace routes                                #
+#                         workspace uploading routes                           #
 ################################################################################
 
 @app.post('/api/workspaces/upload')
@@ -156,6 +152,38 @@ def post_upload_url():
 	"""
 
 	return WorkspaceController.post_upload_url()
+
+################################################################################
+#                          workspace getting routes                            #
+################################################################################
+
+@app.get('/api/workspaces/<string:id>')
+def get_index(id):
+
+	"""
+	Get a workspace's list of patches.
+
+	Parameters
+		id: The workspace id
+	Return
+		array: The list of patch values
+	"""
+
+	return WorkspaceController.get_index(id)
+
+@app.get('/api/workspaces/<string:id>/contents')
+def get_contents(id):
+
+	"""
+	Get a workspace's contents.
+
+	Parameters
+		id: The workspace id
+	Return
+		object: a list of files and directories
+	"""
+
+	return WorkspaceController.get_contents(id)
 
 @app.get('/api/workspaces/<string:id>/patches')
 def get_patches(id):
@@ -248,7 +276,7 @@ def get_fit(id):
 	return WorkspaceController.get_fit(id, patches)
 
 ################################################################################
-#                              plotting routes                                 #
+#                        workspace plotting routes                             #
 ################################################################################
 
 @app.post('/api/workspaces/<string:id>/histograms')
@@ -265,7 +293,9 @@ def post_histograms(id):
 
 	patches = get_array('patches')
 	params = get_dict('params')
-	return WorkspaceController.post_histograms(id, patches, params)
+	background = request.form.get('background')
+	patchset = request.form.get('patchset')
+	return WorkspaceController.post_histograms(id, patches, params, background, patchset)
 
 @app.post('/api/workspaces/<string:id>/pull-plot')
 def post_pull_plot(id):
@@ -281,7 +311,9 @@ def post_pull_plot(id):
 
 	patches = get_array('patches')
 	params = get_dict('params')
-	return WorkspaceController.post_pull_plot(id, patches, params)
+	background = request.form.get('background')
+	patchset = request.form.get('patchset')
+	return WorkspaceController.post_pull_plot(id, patches, params, background, patchset)
 
 ################################################################################
 #                            contact form routes                               #

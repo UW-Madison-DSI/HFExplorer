@@ -10,8 +10,6 @@
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 
-@use "../colors/branding";
-
 //
 // variables
 //
@@ -22,7 +20,7 @@ $height: 40px;
 // colors
 //
 
-$navbar-color: branding.$primary-color;
+$navbar-color: var(--primary-color);
 
 //
 // styles

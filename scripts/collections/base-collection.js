@@ -99,12 +99,22 @@ export default Backbone.Collection.extend({
 		});
 
 		this.each((item) => {
-			if (item.get(attribute).toLowerCase() == value) {
+			if (item.get(attribute) == value) {
 				collection.add(item);
 			}
 		});
 
 		return collection;
+	},
+
+	getModelByAttribute: function(attribute, value) {
+		let model = undefined;
+		this.each((item) => {
+			if (item.get(attribute) == value) {
+				model = item;
+			}
+		});
+		return model;
 	},
 
 	getByNotAttribute: function(attribute, value) {

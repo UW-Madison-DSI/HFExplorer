@@ -46,11 +46,12 @@ class WorkspaceController:
 		patchset = request.files['patchset'] if 'patchset' in request.files else None;
 
 		# upload workspace files
-		workspace.upload_files(background, patchset)
+		files = workspace.upload_files(background, patchset)
 
 		# return workspace object / id
 		return {
-			'id': id
+			'id': id,
+			'files': files
 		}
 
 	@staticmethod
@@ -64,10 +65,11 @@ class WorkspaceController:
 		workspace = Workspace(id)
 
 		# upload workspace from url
-		workspace.upload_url(url)
+		files = workspace.upload_url(url)
 
 		return {
-			'id': id
+			'id': id,
+			'files': files
 		}
 
 	#
@@ -75,7 +77,7 @@ class WorkspaceController:
 	#
 
 	@staticmethod
-	def post_histograms(id, patches, params):
+	def post_histograms(id, patches, params, background=None, patchset=None):
 
 		"""
 		Creates a set of histogram plots.
@@ -87,13 +89,13 @@ class WorkspaceController:
 		"""
 
 		# create histograms
-		histograms = Workspace(id).create_histograms(patches, params)
+		histograms = Workspace(id, background, patchset).create_histograms(patches, params)
 
 		# check for return value
 		return histograms if histograms else Response('No histograms.', status=404)
 
 	@staticmethod
-	def post_pull_plot(id, patches, params):
+	def post_pull_plot(id, patches, params, background=None, patchset=None):
 
 		"""
 		Creates a set of pull plots.
@@ -104,8 +106,12 @@ class WorkspaceController:
 			string[]: The names of the generated pull plots
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# create histograms
-		pull_plots = Workspace(id).create_pull_plot(patches, params)
+		pull_plots = Workspace(id, background, patchset).create_pull_plot(patches, params)
 
 		# check for return value
 		return pull_plots if pull_plots else Response('No pull plots.', status=404)
@@ -113,6 +119,37 @@ class WorkspaceController:
 	#
 	# getting methods
 	#
+
+	@staticmethod
+	def get_index(id):
+
+		"""
+		Returns a workspace.
+
+		Parameters:
+			id (string): The workspace id
+		Returns:
+			workspace: The workspace
+		"""
+
+		# get workspace patches
+		return Workspace(id)
+
+	@staticmethod
+	def get_contents(id):
+
+		"""
+		Returns a workspace's contents.
+
+		Parameters:
+			id (string): The workspace id
+		Returns:
+			string[]: The workspace's contents
+		"""
+		pattern = request.args.get('pattern')
+
+		# get workspace contents
+		return Workspace(id).get_contents(pattern)
 
 	@staticmethod
 	def get_patches(id):
@@ -126,8 +163,12 @@ class WorkspaceController:
 			string[]: A list of the workspace's patches
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# get workspace patches
-		patches = Workspace(id).get_patches()
+		patches = Workspace(id, background, patchset).get_patches()
 
 		# check for return value
 		return patches if patches else []
@@ -144,8 +185,12 @@ class WorkspaceController:
 			string[]: A list of the workspace's channels
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# get workspace channels
-		channels = Workspace(id).get_channels(patches)
+		channels = Workspace(id, background, patchset).get_channels(patches)
 
 		# check for return value
 		return channels if channels else Response('No channels.', status=404)
@@ -162,8 +207,15 @@ class WorkspaceController:
 			string[]: A list of the workspace's parameters
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
+		# create workspace
+		workspace = Workspace(id, background, patchset)
+
 		# get workspace parameters
-		params = Workspace(id).get_params(patches)
+		params = workspace.get_params(patches)
 
 		# check for return value
 		return params if params else Response('No params.', status=404)
@@ -180,8 +232,12 @@ class WorkspaceController:
 			object: A histogram plot.
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# return binary file contents
-		return send_file(Workspace(id).histogram_path(channel))
+		return send_file(Workspace(id, background, patchset).histogram_path(channel))
 
 	@staticmethod
 	def get_pull_plot(id):
@@ -195,8 +251,12 @@ class WorkspaceController:
 			object: A pull plot.
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# return binary file contents
-		return send_file(Workspace(id).pull_plot_path())
+		return send_file(Workspace(id, background, patchset).pull_plot_path())
 
 	@staticmethod
 	def get_fit(id, patches):
@@ -210,8 +270,12 @@ class WorkspaceController:
 			object: A list of the fit's parameters.
 		"""
 
+		# get optional parameters
+		background = request.args.get('background')
+		patchset = request.args.get('patchset')
+
 		# get workspace fit
-		fit = Workspace(id).get_fit(patches)
+		fit = Workspace(id, background, patchset).get_fit(patches)
 
 		# check for return value
 		return fit if fit else Response('No fit.', status=404)

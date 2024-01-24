@@ -18,7 +18,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/3189648" target="_blank">#workspaces/3189648</a>
+						<a href="#workspaces/example-3189648" target="_blank">#workspaces/example-3189648</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -38,7 +38,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/3189649" target="_blank">#workspaces/3189649</a>
+						<a href="#workspaces/example-3189649" target="_blank">#workspaces/example-3189649</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -66,7 +66,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/ins2153660" target="_blank">#workspaces/ins2153660</a>
+						<a href="#workspaces/example-ins2153660" target="_blank">#workspaces/example-ins2153660</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -95,7 +95,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2916834" target="_blank">#workspaces/2916834</a>
+						<a href="#workspaces/example-2916834" target="_blank">#workspaces/example-2916834</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -115,7 +115,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2916835" target="_blank">#workspaces/2916835</a>
+						<a href="#workspaces/example-2916835" target="_blank">#workspaces/example-2916835</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -135,7 +135,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2916836" target="_blank">#workspaces/2916836</a>
+						<a href="#workspaces/example-2916836" target="_blank">#workspaces/example-2916836</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -155,7 +155,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2916837" target="_blank">#workspaces/2916837</a>
+						<a href="#workspaces/example-2916837" target="_blank">#workspaces/example-2916837</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -184,7 +184,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2595110" target="_blank">#workspaces/2595110</a>
+						<a href="#workspaces/example-2595110" target="_blank">#workspaces/example-2595110</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -199,7 +199,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2595111" target="_blank">#workspaces/2595111</a>
+						<a href="#workspaces/example-2595111" target="_blank">#workspaces/example-2595111</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -223,7 +223,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2953862-1" target="_blank">#workspaces/2953862-1</a>
+						<a href="#workspaces/example-2953862-1" target="_blank">#workspaces/example-2953862-1</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -244,7 +244,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2953862-2" target="_blank">#workspaces/2953862-2</a>
+						<a href="#workspaces/example-2953862-2" target="_blank">#workspaces/example-2953862-2</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
@@ -254,7 +254,7 @@
 					</div>
 
 					<div class="figure very small">
-						<a href="images/gallery/2953862-1.png" target="_blank" class="lightbox" title="Workspace 2953862-2"><img src="images/gallery/2953862-1.png" /></a>
+						<a href="images/gallery/example-2953862-1.png" target="_blank" class="lightbox" title="Workspace 2953862-2"><img src="images/gallery/2953862-2.png" /></a>
 						<div class="caption">Workspace 2953862-2</div>
 					</div>
 				</li>
@@ -265,7 +265,7 @@
 						<label class="control-label col-md-2">
 							<i class="fa fa-chart-line"></i>Results
 						</label>
-						<a href="#workspaces/2953862-3" target="_blank">#workspaces/2953862-3</a>
+						<a href="#workspaces/example-2953862-3" target="_blank">#workspaces/example-2953862-3</a>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-md-2">
