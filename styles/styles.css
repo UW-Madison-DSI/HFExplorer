@@ -482,7 +482,7 @@ input[type=range]::-ms-thumb:hover {
 .modal .modal-dialog {
   display: flex;
   width: 600px;
-  min-height: 400px;
+  height: 400px;
   max-width: 100%;
   margin: auto;
 }
@@ -518,18 +518,25 @@ input[type=range]::-ms-thumb:hover {
 }
 .modal .modal-dialog .modal-content .modal-body {
   flex-grow: 1;
-}
-.modal .modal-dialog .modal-content .modal-body .icon {
-  font-size: 200%;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: inline-block;
-}
-.modal .modal-dialog .modal-content .modal-body .icon + .status-message {
-  display: inline-block;
+  /*
+  .icon {
+  	font-size: 200%;
+  	margin-left: 10px; 
+  	margin-right: 10px;
+  	display: inline-block;
+
+  	+ .status-message {
+  		display: inline-block;
+  	}
+  }
+  */
 }
 .modal .modal-dialog .modal-content .modal-footer {
   padding: 10px;
+}
+.modal.large .modal-dialog {
+  width: 800px;
+  height: 500px;
 }
 
 .status-dialog .modal-body {
@@ -840,6 +847,10 @@ body[device=phone] .modal-dialog .modal-content .modal-footer {
 .btn:hover, .btn:active, .btn:focus:hover, .btn:focus:active {
   background: #d0d0d7;
   border-color: #d0d0d7;
+}
+.btn.selected, .btn:focus.selected {
+  color: white;
+  background: var(--primary-color);
 }
 
 .btn-primary, .btn-primary:focus {
@@ -1534,6 +1545,116 @@ input[type=range]::-moz-range-thumb {
 \******************************************************************************/
 /******************************************************************************\
 |                                                                              |
+|                                  _lists.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+.item-list {
+  max-height: 300px;
+  overflow: auto;
+  padding-inline-start: 0;
+  cursor: default;
+}
+.item-list li {
+  display: flex;
+  list-style: none;
+  padding: 0 10px;
+}
+.item-list li .icon {
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+.item-list li.selected {
+  background-color: var(--primary-color);
+  color: white;
+}
+.item-list li.selected i {
+  color: white;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                  _lists.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+.icon-grid {
+  overflow: auto;
+  padding-inline-start: 0;
+  cursor: default;
+}
+.icon-grid li {
+  list-style: none;
+  width: 90px;
+  height: 120px;
+  text-align: center;
+  padding: 0 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  float: left;
+  color: var(--primary-color);
+}
+.icon-grid li .icon {
+  color: #a0a0c0;
+  filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.25));
+}
+.icon-grid li .icon i {
+  font-size: 300%;
+}
+.icon-grid li .name {
+  line-height: 1.25em;
+  word-break: break-word;
+  border-radius: 5px;
+  padding: 1px;
+  margin-top: 1px;
+  font-size: 90%;
+}
+.icon-grid li.selected i {
+  color: var(--primary-color);
+}
+.icon-grid li.selected .name {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/******************************************************************************\
+|                                                                              |
+|                                  _index.scss                                 |
+|                                                                              |
+|******************************************************************************|
+|                                                                              |
+|        This defines the visual styling rules used in this application.       |
+|                                                                              |
+|        Author(s): Abe Megahed                                                |
+|                                                                              |
+|        This file is subject to the terms and conditions defined in           |
+|        'LICENSE.txt', which is part of this source code distribution.        |
+|                                                                              |
+|******************************************************************************|
+|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
+\******************************************************************************/
+/******************************************************************************\
+|                                                                              |
 |                                 _headers.scss                                |
 |                                                                              |
 |******************************************************************************|
@@ -1793,6 +1914,13 @@ canvas {
 .columns {
   display: flex;
 }
+.columns ul {
+  max-height: 300px;
+  border: 1px solid lightgrey;
+  padding: 10px 0;
+  margin: 1px;
+  border-radius: 10px;
+}
 
 .panel {
   box-shadow: none;
@@ -1861,44 +1989,6 @@ body[device=desktop] .columns .half-width {
     margin: auto;
   }
 }
-/******************************************************************************\
-|                                                                              |
-|                                  _lists.scss                                 |
-|                                                                              |
-|******************************************************************************|
-|                                                                              |
-|        This defines the visual styling rules used in this application.       |
-|                                                                              |
-|        Author(s): Abe Megahed                                                |
-|                                                                              |
-|        This file is subject to the terms and conditions defined in           |
-|        'LICENSE.txt', which is part of this source code distribution.        |
-|                                                                              |
-|******************************************************************************|
-|     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
-\******************************************************************************/
-.file-list {
-  max-height: 300px;
-  overflow: auto;
-  padding-inline-start: 0;
-  cursor: default;
-}
-.file-list li {
-  list-style: none;
-  padding: 0 10px;
-}
-.file-list li i {
-  color: var(--primary-color);
-  margin-right: 5px;
-}
-.file-list li.selected {
-  background-color: var(--primary-color);
-  color: white;
-}
-.file-list li.selected i {
-  color: white;
-}
-
 /******************************************************************************\
 |                                                                              |
 |                                 _pages.scss                                  |

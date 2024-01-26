@@ -1,10 +1,10 @@
 /******************************************************************************\
 |                                                                              |
-|                             file-list-item-view.js                           |
+|                                 files-view.js                                |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
-|        This defines an abstract view that shows a single list item.          |
+|        This defines view of file items (lists, icons etc.)                   |
 |                                                                              |
 |        Author(s): Abe Megahed                                                |
 |                                                                              |
@@ -15,7 +15,9 @@
 |        Copyright (C) 2016-2023, Megahed Labs LLC, www.sharedigm.com          |
 \******************************************************************************/
 
-import BaseView from '../../../views/base-view.js';
+import BaseView from '../../views/base-view.js';
+import FileListView from '../../views/collections/file-lists/file-list-view.js';
+import FileIconsView from '../../views/collections/file-icons/file-icons-view.js';
 
 export default BaseView.extend({
 
@@ -23,66 +25,68 @@ export default BaseView.extend({
 	// attributes
 	//
 
-	tagName: 'li',
+	className: 'files',
+	template: _.template('<div class="items"></div>'),
 
-	template: _.template(`
-		<div class="icon"><i class="fa <%= icon %>"></i></div>
-		<div class="name"><%= name %></div>
-	`),
-
-	events: {
-		'click': 'onClick'
-	},
-
-	//
-	// querying methods
-	//
-
-	isSelected: function() {
-		return this.$el.hasClass('selected');
+	regions: {
+		items: {
+			el: '.items',
+			replaceElement: true
+		}
 	},
 
 	//
 	// selection methods
 	//
 
-	select: function() {
-		this.$el.addClass('selected');
+	selectAll: function() {
+		this.getChildView('items').selectAll();
 	},
 
-	deselect: function() {
-		this.$el.removeClass('selected');
+	deselectAll: function() {
+		this.getChildView('items').deselectAll();
 	},
 
 	//
 	// rendering methods
 	//
 
-	templateContext: function() {
-		return {
-			icon: 'fa-file',
-			name: this.model.get('name').replace(/\//g, '/<wbr>')
-		}
-	},
-
 	onRender: function() {
-		if (this.options.selected) {
-			this.select();
+		switch (this.options.view_kind) {
+			case 'lists':
+				this.showList();
+				break;
+			case 'icons':
+				this.showIcons();
+				break;
 		}
 	},
 
-	onClick: function(event) {
-		this.parent.deselectAll();
-		this.select();
+	showList: function() {
+		this.showChildView('items', new FileListView({
+			collection: this.collection,
 
-		// block from parent
-		//
-		event.stopPropagation();
+			// options
+			//
+			selected: this.options.selected,
 
-		// perform callback
-		//
-		if (this.options.onselect) {
-			this.options.onselect(this);
-		}
+			// callbacks
+			//
+			onselect: this.options.onselect
+		}))
+	},
+
+	showIcons: function() {
+		this.showChildView('items', new FileIconsView({
+			collection: this.collection,
+
+			// options
+			//
+			selected: this.options.selected,
+
+			// callbacks
+			//
+			onselect: this.options.onselect
+		}))
 	}
 });

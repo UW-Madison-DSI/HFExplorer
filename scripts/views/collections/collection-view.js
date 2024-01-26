@@ -143,6 +143,24 @@ export default Marionette.CollectionView.extend(_.extend({}, Boundable, Hideable
 	},
 
 	//
+	// selection methods
+	//
+
+	selectAll: function() {
+		for (let i = 0; i < this.children.length; i++) {
+			let child = this.children.findByIndex(i);
+			child.select();
+		}
+	},
+
+	deselectAll: function() {
+		for (let i = 0; i < this.children.length; i++) {
+			let child = this.children.findByIndex(i);
+			child.deselect();
+		}
+	},
+
+	//
 	// rendering methods
 	//
 

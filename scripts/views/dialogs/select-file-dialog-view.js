@@ -11,7 +11,7 @@
 \******************************************************************************/
 
 import DialogView from '../../views/dialogs/dialog-view.js';
-import FileListView from '../../views/collections/file-lists/file-list-view.js';
+import FilesView from '../../views/collections/files-view.js';
 
 export default DialogView.extend({
 
@@ -19,7 +19,7 @@ export default DialogView.extend({
 	// attributes
 	//
 
-	className: 'focused modal notify-dialog',
+	className: 'focused large modal notify-dialog',
 
 	template: _.template(`
 		<div class="modal-header">
@@ -46,19 +46,35 @@ export default DialogView.extend({
 		</div>
 		
 		<div class="modal-footer">
+			<div class="view-kind" style="float:left; margin:5px">
+				<button class="icons btn btn-sm selected">
+					<i class="fa fa-table-cells-large"></i>
+				</button>
+				<button class="lists btn btn-sm">
+					<i class="fa fa-list"></i>
+				</button>
+			</div>
+
 			<button id="ok" class="btn btn-primary" data-dismiss="modal" disabled><i class="fa fa-check"></i>OK</button>
 		</div>
 	`),
 
 	regions: {
-		files: '.files'
+		files: {
+			el: '.files',
+			replaceElement: true
+		}
 	},
 
 	events: {
 		'click .modal-body': 'onClickModalBody',
+		'click .lists.btn': 'onClickLists',
+		'click .icons.btn': 'onClickIcons',
 		'click #ok': 'onClickOk',
 		'keydown': 'onKeyDown'
 	},
+
+	default_view_kind: 'icons',
 
 	//
 	// setting methods
@@ -66,6 +82,19 @@ export default DialogView.extend({
 
 	setDisabled: function(disabled) {
 		this.$el.find('#ok').prop('disabled', disabled);
+	},
+
+	setViewKind: function(viewKind) {
+		this.options.view_kind = viewKind;
+
+		// update buttons
+		//
+		this.$el.find('.view-kind .btn').removeClass('selected');
+		this.$el.find('.view-kind .btn.' + viewKind).addClass('selected');
+
+		// update files
+		//
+		this.showFiles();
 	},
 
 	//
@@ -81,8 +110,23 @@ export default DialogView.extend({
 	},
 
 	onRender: function() {
-		this.showChildView('files', new FileListView({
+
+		// show child views
+		//
+		this.setViewKind(this.options.viewKind || this.default_view_kind);
+
+		// set initial button state
+		//
+		this.update();
+	},
+
+	showFiles: function() {
+		this.showChildView('files', new FilesView({
 			collection: this.collection,
+
+			// options
+			//
+			view_kind: this.options.view_kind,
 
 			// callbacks
 			//
@@ -95,9 +139,10 @@ export default DialogView.extend({
 			}
 		}));
 
-		// set initial button state
-		//
-		this.update();
+		this.$el.find('.files').css({
+			'height': 'calc(100% - 35px)',
+			'overflow': 'auto'
+		});
 	},
 
 	update: function() {
@@ -116,6 +161,14 @@ export default DialogView.extend({
 		this.selected = null;
 		this.getChildView('files').deselectAll();
 		this.update();
+	},
+
+	onClickLists: function() {
+		this.setViewKind('lists');
+	},
+
+	onClickIcons: function() {
+		this.setViewKind('icons');
 	},
 
 	onClickOk: function() {

@@ -1,6 +1,6 @@
 /******************************************************************************\
 |                                                                              |
-|                                   _index.scss                                |
+|                                  _lists.scss                                 |
 |                                                                              |
 |******************************************************************************|
 |                                                                              |
@@ -15,17 +15,35 @@
 |     Copyright (C) 2023, Data Science Institute, University of Wisconsin      |
 \******************************************************************************/
 
-@use "headers";
-@use "icons";
-@use "layout";
-@use "pages";
-@use "plots";
-@use "sections";
-@use "sidebar";
-@use "spinners";
-@use "splitters";
-@use "tables";
-@use "toolbars";
-@use "typeography";
-@use "welcome";
-@use "workspace";
+@use "../bootstrap/variables";
+
+//
+// styles
+//
+
+.item-list {
+	max-height: 300px;
+	overflow: auto;
+	padding-inline-start: 0;
+	cursor: default;
+
+	li {
+		display: flex;
+		list-style: none;
+		padding: 0 10px;
+		
+		.icon {
+			color: var(--primary-color);
+			margin-right: 5px;
+		}
+
+		&.selected {
+			background-color: var(--primary-color);
+			color: white;
+
+			i {
+				color: white;
+			}
+		}
+	}
+}	

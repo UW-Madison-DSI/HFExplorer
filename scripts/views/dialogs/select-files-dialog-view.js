@@ -11,7 +11,7 @@
 \******************************************************************************/
 
 import DialogView from '../../views/dialogs/dialog-view.js';
-import FileListView from '../../views/collections/file-lists/file-list-view.js';
+import FilesView from '../../views/collections/files-view.js';
 
 export default DialogView.extend({
 
@@ -19,7 +19,7 @@ export default DialogView.extend({
 	// attributes
 	//
 
-	className: 'focused modal notify-dialog',
+	className: 'focused large modal notify-dialog',
 
 	template: _.template(`
 		<div class="modal-header">
@@ -55,7 +55,18 @@ export default DialogView.extend({
 		</div>
 		
 		<div class="modal-footer">
-			<button id="ok" class="btn btn-primary" data-dismiss="modal" disabled><i class="fa fa-check"></i>OK</button>
+			<div class="view-kind" style="float:left; margin:5px">
+				<button class="icons btn btn-sm selected">
+					<i class="fa fa-table-cells-large"></i>
+				</button>
+				<button class="lists btn btn-sm">
+					<i class="fa fa-list"></i>
+				</button>
+			</div>
+
+			<button id="ok" class="btn btn-primary" data-dismiss="modal">
+				<i class="fa fa-check"></i>OK
+			</button>
 		</div>
 	`),
 
@@ -66,16 +77,24 @@ export default DialogView.extend({
 
 	events: {
 		'click .modal-body': 'onClickModalBody',
+		'click .lists.btn': 'onClickLists',
+		'click .icons.btn': 'onClickIcons',
 		'click #ok': 'onClickOk',
 		'keydown': 'onKeyDown'
 	},
 
+	default_view_kind: 'icons',
+
 	//
-	// getting methods
+	// constructor
 	//
 
-	getFile: function() {
+	initialize: function() {
 
+		// set attributes
+		//
+		this.background = this.model.get('background');
+		this.patchset = this.model.get('patchset');
 	},
 
 	//
@@ -83,7 +102,23 @@ export default DialogView.extend({
 	//
 
 	setDisabled: function(disabled) {
+
+		// enable / disable ok button
+		//
 		this.$el.find('#ok').prop('disabled', disabled);
+	},
+
+	setViewKind: function(viewKind) {
+		this.options.view_kind = viewKind;
+
+		// update buttons
+		//
+		this.$el.find('.view-kind .btn').removeClass('selected');
+		this.$el.find('.view-kind .btn.' + viewKind).addClass('selected');
+
+		// update files
+		//
+		this.showFiles();
 	},
 
 	//
@@ -102,17 +137,25 @@ export default DialogView.extend({
 
 		// show child views
 		//
-		this.showBackgroundFiles();
-		this.showPatchsetFiles();
+		this.setViewKind(this.options.viewKind || this.default_view_kind);
 
 		// set initial button state
 		//
 		this.update();
 	},
 
+	showFiles: function() {
+		this.showBackgroundFiles();
+		this.showPatchsetFiles();
+	},
+
 	showBackgroundFiles: function() {
-		this.showChildView('background', new FileListView({
+		this.showChildView('background', new FilesView({
 			collection: this.collection,
+
+			// options
+			//
+			view_kind: this.options.view_kind,
 			selected: this.collection.getModelByAttribute('name', this.model.get('background')),
 
 			// callbacks
@@ -128,8 +171,12 @@ export default DialogView.extend({
 	},
 
 	showPatchsetFiles: function() {
-		this.showChildView('patchset', new FileListView({
+		this.showChildView('patchset', new FilesView({
 			collection: this.collection,
+
+			// options
+			//
+			view_kind: this.options.view_kind,
 			selected: this.collection.getModelByAttribute('name', this.model.get('patchset')),
 
 			// callbacks
@@ -165,6 +212,14 @@ export default DialogView.extend({
 		this.getChildView('patchset').deselectAll();
 		this.setDisabled(true);
 		this.update();
+	},
+
+	onClickLists: function() {
+		this.setViewKind('lists');
+	},
+
+	onClickIcons: function() {
+		this.setViewKind('icons');
 	},
 
 	onClickOk: function() {

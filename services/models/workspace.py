@@ -26,6 +26,7 @@ import matplotlib
 import fnmatch
 import shutil
 import glob
+import tarfile 
 from pathlib import Path
 from flask import jsonify
 from cabinetry.model_utils import prediction
@@ -114,17 +115,87 @@ class Workspace:
 		# strip query param
 		url = url.replace('?view=true', '')
 
-		# look up file type
-		response = json.loads(requests.get(url).text)
-		file_type = response['file_contents']
-
-		# download workspace to folder
-		if (file_type != 'Binary'):
+		# check for json urls
+		if (url.endswith('.json')):
 			self.upload_file_from_url(url)
-		else:
+
+		# check for archive urls
+		elif (url.endswith('.tar') or url.endswith('.tar.gz') or url.endswith('.tgz')):
 			self.upload_archive_from_url(url)
 
+		# handle hepdata urls
+		else:
+			# download file
+			contents = requests.get(url)
+			response = json.loads(contents.text)
+
+			if ('file_contents' in response):
+
+				# look up file type
+				file_type = response['file_contents']
+
+				# download workspace to folder
+				if (file_type != 'Binary'):
+					self.upload_file_from_hepdata(url)
+				else:
+					self.upload_archive_from_hepdata(url)
+
+	#
+	# url uploading methods
+	#
+
 	def upload_file_from_url(self, url):
+
+		"""
+		Download the workspace file from a url.
+
+		Parameters:
+			url: The url to download the workspace from
+		"""
+
+		import urllib
+		workspaceDir = 'public/workspaces/' + str(self.id)
+
+		# make workspace directory
+		os.mkdir(workspaceDir)
+
+		# download file to workspace directory
+		filename = workspaceDir + '/' + os.path.basename(url)
+		urllib.request.urlretrieve(url, filename)
+
+	def upload_archive_from_url(self, url):
+
+		"""
+		Download the workspace archive from a url.
+
+		Parameters:
+			url: The url to download the workspace from
+		"""
+
+		from pyhf.contrib.utils import download
+		workspaceDir = 'public/workspaces/' + str(self.id)
+
+		# make workspace directory
+		os.mkdir(workspaceDir)
+
+		# download file to workspace directory
+		filename = workspaceDir + '/' + os.path.basename(url)
+		urllib.request.urlretrieve(url, filename)
+
+		# open archive 
+		archive = tarfile.open(filename)
+
+		# extract archive to workspace
+		archive.extractall(workspaceDir)
+
+		# close archive
+		archive.close()
+
+	#
+	# hepdata uploading methods
+	#
+
+	def upload_file_from_hepdata(self, url):
 
 		"""
 		Download the workspace file from a url.
@@ -143,7 +214,7 @@ class Workspace:
 		filename = workspaceDir + '/background.json'
 		urllib.request.urlretrieve(url + '?view=true', filename)
 
-	def upload_archive_from_url(self, url):
+	def upload_archive_from_hepdata(self, url):
 
 		"""
 		Download the workspace archive from a url.
@@ -311,7 +382,7 @@ class Workspace:
 		json_contents = json.loads(contents)
 
 		return {
-			'metadata': json_contents['metadata'],
+			'metadata': json_contents['metadata'] if json_contents and 'metadata' in json_contents.keys() else None,
 			'values': array
 		};
 

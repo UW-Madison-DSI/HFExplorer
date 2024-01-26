@@ -25,19 +25,8 @@ export default CollectionView.extend({
 	//
 
 	tagName: 'ul',
-	className: 'file-list',
+	className: 'item-list',
 	childView: FileListItemView,
-
-	//
-	// selection methods
-	//
-
-	deselectAll: function() {
-		for (let i = 0; i < this.children.length; i++) {
-			let child = this.children.findByIndex(i);
-			child.deselect();
-		}
-	},
 
 	//
 	// rendering methods

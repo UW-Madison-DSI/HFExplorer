@@ -183,6 +183,14 @@ canvas {
 
 .columns {
 	display: flex;
+
+	ul {
+		max-height: 300px;
+		border: 1px solid lightgrey;
+		padding: 10px 0;
+		margin: 1px;
+		border-radius: 10px;
+	}
 }
 
 .panel {

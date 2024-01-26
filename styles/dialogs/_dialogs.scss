@@ -23,6 +23,8 @@
 
 $width: 600px;
 $height: 400px;
+$large-width: 800px;
+$large-height: 500px;
 $backdrop-color: rgba(black, 0.25);
 $shadow: 10px 10px 50px 10px rgba(black, 0.5);
 
@@ -49,7 +51,7 @@ $icon-color: var(--primary-color);
 	.modal-dialog {
 		display: flex;
 		width: $width;
-		min-height: $height;
+		height: $height;
 		max-width: 100%;
 		margin: auto;
 
@@ -97,6 +99,7 @@ $icon-color: var(--primary-color);
 			.modal-body {
 				flex-grow: 1;
 
+				/*
 				.icon {
 					font-size: 200%;
 					margin-left: 10px; 
@@ -107,11 +110,23 @@ $icon-color: var(--primary-color);
 						display: inline-block;
 					}
 				}
+				*/
 			}
 
 			.modal-footer {
 				padding: 10px;
 			}
+		}
+	}
+
+	//
+	// large dialogs
+	//
+
+	&.large {
+		.modal-dialog {
+			width: $large-width;
+			height: $large-height;
 		}
 	}
 }
