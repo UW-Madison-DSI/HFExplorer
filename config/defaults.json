@@ -37,6 +37,11 @@
 				"text": "Contact",
 				"icon": "fa fa-envelope",
 				"href": "#contact"
+			},
+			"download": {
+				"text": "Download",
+				"icon": "fa fa-download",
+				"href": "https://github.com/UW-Madison-DSI/HFExplorer"
 			}
 		}
 	},

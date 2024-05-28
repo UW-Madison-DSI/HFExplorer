@@ -33,7 +33,7 @@ export default BaseView.extend({
 			<% let key = keys[i]; %>
 			<% let item = defaults.navbar.navs[key]; %>
 			<li<% if (nav == key) {%> class="active" <% } %>>
-				<a href="#<%= key %>">
+				<a href="<%= item.href %>"<% if (item.href.startsWith('http')) { %> target="blank"<% } %>>
 					<i class="<%= item.icon %>"></i>
 					<span class="hidden-xs"><%= item.text %></span>
 				</a>

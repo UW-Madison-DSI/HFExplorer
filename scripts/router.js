@@ -98,6 +98,9 @@ export default Backbone.Router.extend({
 	},
 
 	showInfo: function(address) {
+
+		// display page
+		//
 		this.fetchTemplate(address, (text) => {
 
 			// show info page
